@@ -18,7 +18,7 @@ module load conda
 conda activate openne1
 
 ## Run you job ##
-cd ~/scratch/shortest-distance/src
+cd ~/scratch/shortest-distance-survey/src
 
 python generate_query_workload.py --data_name W_Jinan    --query_dir real_workload --query_strategy query_perturbation --perturb_k 5   --k_hop 1 --max_queries 500000 --save_dir real_workload_perturb_500k
 python generate_query_workload.py --data_name W_Shenzhen --query_dir real_workload --query_strategy query_perturbation --perturb_k 7   --k_hop 1 --max_queries 500000 --save_dir real_workload_perturb_500k

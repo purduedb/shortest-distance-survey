@@ -13,7 +13,7 @@ module load conda
 conda activate myenv
 
 ## Run you job ##
-cd ~/scratch/shortest-distance/src
+cd ~/scratch/shortest-distance-survey/src
 
 # Check if the PYTHON_COMMAND variable is set, if not, use a default command
 PYTHON_COMMAND=${PYTHON_COMMAND:-"python dataset_summary.py"}

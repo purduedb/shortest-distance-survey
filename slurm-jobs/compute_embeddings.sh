@@ -15,7 +15,7 @@ module load conda
 conda activate openne1
 
 ## Run you job ##
-cd ~/scratch/shortest-distance/third_party/OpenNE/src
+cd ~/scratch/shortest-distance-survey/third_party/OpenNE/src
 
 DATASETS=(
     ## Sample datasets ##

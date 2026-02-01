@@ -14,11 +14,11 @@
 //
 // Compile command (CUDA):
 // g++ check_cuda.cpp -o check_cuda \
-//     -I$HOME/scratch/shortest-distance/tmp/cpp_runtime/libtorch/include \
-//     -I$HOME/scratch/shortest-distance/tmp/cpp_runtime/libtorch/include/torch/csrc/api/include \
-//     -L$HOME/scratch/shortest-distance/tmp/cpp_runtime/libtorch/lib \
+//     -I$HOME/scratch/shortest-distance-survey/tmp/cpp_runtime/libtorch/include \
+//     -I$HOME/scratch/shortest-distance-survey/tmp/cpp_runtime/libtorch/include/torch/csrc/api/include \
+//     -L$HOME/scratch/shortest-distance-survey/tmp/cpp_runtime/libtorch/lib \
 //     -ltorch -ltorch_cpu -lc10 -ltorch_cuda -lc10_cuda\
-//     -Wl,-rpath,$HOME/scratch/shortest-distance/tmp/cpp_runtime/libtorch/lib \
+//     -Wl,-rpath,$HOME/scratch/shortest-distance-survey/tmp/cpp_runtime/libtorch/lib \
 //     -D_GLIBCXX_USE_CXX11_ABI=0
 //
 // Run command:

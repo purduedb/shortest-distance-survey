@@ -115,7 +115,7 @@ module load conda
 conda activate openne1
 
 ## Run you job ##
-cd ~/scratch/shortest-distance/src
+cd ~/scratch/shortest-distance-survey/src
 
 ## MAIN ##
 SECONDS=0  # Timer for total duration

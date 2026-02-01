@@ -18,7 +18,7 @@ module load conda
 conda activate myenv
 
 ## Run you job ##
-cd ~/scratch/shortest-distance/src
+cd ~/scratch/shortest-distance-survey/src
 
 ## Capture memory and time footprint ##
 /usr/bin/time -f "\\n\\nMax CPU Memory: %M KB\\nTime Elapsed: %E sec" \
