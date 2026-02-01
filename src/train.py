@@ -41,6 +41,7 @@ from utils.plot_utils import (
 )
 from utils.torch_utils import (
     get_available_device,
+    print_device_info,
     get_optimizer,
     get_criterion,
     save_dataset,
@@ -503,10 +504,12 @@ if args.model_class == 'catboost':
     device = 'cpu'  # Incremental training in catboost is only supported on CPU
     print(f"Setting device for catboost: `{args.device}` --> `{device}`")
 elif device is None:
+    print("No device specified by user, detecting available device...")
     device = get_available_device()
 else:
     print(f"Using user-specified device: {device}")
 print(f"Using Device: {device}")
+print_device_info(device)
 
 # %%
 ################

@@ -25,14 +25,20 @@ def get_available_device():
     device = None
     if torch.backends.mps.is_available():
         device = "mps"
-        print(f"GPU Detected: MPS")
     elif torch.cuda.is_available():
         device = "cuda"
-        print(f"GPU Detected: {torch.cuda.get_device_name(0)}")
     else:
         device = "cpu"
-        print("No GPU detected, using CPU.")
     return device
+
+## Function to print device information
+def print_device_info(device):
+    if device == 'cuda':
+        print(f"Device Info: {torch.cuda.get_device_name(0)}")
+    elif device == 'mps':
+        print(f"Device Info: MPS (Apple Silicon GPU)")
+    else:
+        print(f"Device Info: CPU")
 
 ## Function to get optimizer
 def get_optimizer(optimizer_type, model, learning_rate):
