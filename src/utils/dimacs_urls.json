@@ -1,0 +1,62 @@
+{
+    "USA": {
+        "description": "Full USA",
+        "graph_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.USA.gr.gz",
+        "coordinates_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.USA.co.gz"
+    },
+    "CTR": {
+        "description": "Central USA",
+        "graph_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.CTR.gr.gz",
+        "coordinates_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.CTR.co.gz"
+    },
+    "W": {
+        "description": "Western USA",
+        "graph_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.W.gr.gz",
+        "coordinates_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.W.co.gz"
+    },
+    "E": {
+        "description": "Eastern USA",
+        "graph_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.E.gr.gz",
+        "coordinates_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.E.co.gz"
+    },
+    "LKS": {
+        "description": "Great Lakes",
+        "graph_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.LKS.gr.gz",
+        "coordinates_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.LKS.co.gz"
+    },
+    "CAL": {
+        "description": "California and Nevada",
+        "graph_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.CAL.gr.gz",
+        "coordinates_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.CAL.co.gz"
+    },
+    "NE": {
+        "description": "Northeast USA",
+        "graph_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.NE.gr.gz",
+        "coordinates_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.NE.co.gz"
+    },
+    "NW": {
+        "description": "Northwest USA",
+        "graph_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.NW.gr.gz",
+        "coordinates_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.NW.co.gz"
+    },
+    "FLA": {
+        "description": "Florida",
+        "graph_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.FLA.gr.gz",
+        "coordinates_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.FLA.co.gz"
+    },
+    "COL": {
+        "description": "Colorado",
+        "graph_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.COL.gr.gz",
+        "coordinates_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.COL.co.gz"
+    },
+    "BAY": {
+        "description": "San Francisco Bay Area",
+        "graph_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.BAY.gr.gz",
+        "coordinates_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.BAY.co.gz"
+    },
+    "NY": {
+        "description": "New York City",
+        "graph_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.NY.gr.gz",
+        "coordinates_url": "https://www.diag.uniroma1.it/challenge9/data/USA-road-d/USA-road-d.NY.co.gz"
+    }
+}

@@ -1,0 +1,199 @@
+EXECUTE mode: true
+SLURM mode: false
+----------------------------------------
+Task: 1 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1596748 KB
+Time Elapsed: 5:34.56 sec
+----------------------------------------
+Task: 2 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_mean_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1618308 KB
+Time Elapsed: 5:32.70 sec
+----------------------------------------
+Task: 3 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_sub_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1601060 KB
+Time Elapsed: 5:31.77 sec
+----------------------------------------
+Task: 4 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1605536 KB
+Time Elapsed: 5:31.44 sec
+----------------------------------------
+Task: 5 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_mean_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1633164 KB
+Time Elapsed: 5:29.91 sec
+----------------------------------------
+Task: 6 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_sub_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1613580 KB
+Time Elapsed: 5:30.92 sec
+----------------------------------------
+Task: 7 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1621904 KB
+Time Elapsed: 5:31.58 sec
+----------------------------------------
+Task: 8 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_mean_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1642172 KB
+Time Elapsed: 5:29.06 sec
+----------------------------------------
+Task: 9 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_sub_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1636100 KB
+Time Elapsed: 5:32.77 sec
+----------------------------------------
+Task: 10 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1705608 KB
+Time Elapsed: 5:34.39 sec
+----------------------------------------
+Task: 11 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_mean_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1734360 KB
+Time Elapsed: 5:36.86 sec
+----------------------------------------
+Task: 12 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_sub_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1718804 KB
+Time Elapsed: 5:35.77 sec
+----------------------------------------
+Task: 13 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1695316 KB
+Time Elapsed: 5:34.98 sec
+----------------------------------------
+Task: 14 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_mean_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1723824 KB
+Time Elapsed: 5:32.60 sec
+----------------------------------------
+Task: 15 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_sub_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1717704 KB
+Time Elapsed: 5:33.83 sec
+----------------------------------------
+Task: 16 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2135580 KB
+Time Elapsed: 5:51.04 sec
+----------------------------------------
+Task: 17 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_mean_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2150332 KB
+Time Elapsed: 5:51.80 sec
+----------------------------------------
+Task: 18 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_sub_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2140952 KB
+Time Elapsed: 5:54.18 sec
+----------------------------------------
+Task: 19 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2401376 KB
+Time Elapsed: 5:58.24 sec
+----------------------------------------
+Task: 20 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_mean_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2402888 KB
+Time Elapsed: 5:53.22 sec
+----------------------------------------
+Task: 21 / 21
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_DistanceNN_sub_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2402056 KB
+Time Elapsed: 5:57.79 sec
+----------------------------------------
+Finished.
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Total Time Elapsed: 0-01:58:40
+SLURM_JOBID=9820470
+SLURM_JOB_NAME=v39-real_workload_perturb_500k
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

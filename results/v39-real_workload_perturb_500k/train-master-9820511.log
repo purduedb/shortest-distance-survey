@@ -1,0 +1,199 @@
+EXECUTE mode: true
+SLURM mode: false
+----------------------------------------
+Task: 1 / 21
+PYTHON_COMMAND: python train.py --model_class rne --model_name RNE --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.003 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_RNE_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1629932 KB
+Time Elapsed: 5:48.80 sec
+----------------------------------------
+Task: 2 / 21
+PYTHON_COMMAND: python train.py --model_class catboost --model_name CatBoost --embedding_filename landmark_dim61.embeddings --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.3 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoost_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 3756832 KB
+Time Elapsed: 5:46.66 sec
+----------------------------------------
+Task: 3 / 21
+PYTHON_COMMAND: python train.py --model_class catboostnn --model_name CatBoostNN --embedding_filename landmark_dim61.embeddings --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.0003 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoostNN_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1642740 KB
+Time Elapsed: 5:28.90 sec
+----------------------------------------
+Task: 4 / 21
+PYTHON_COMMAND: python train.py --model_class rne --model_name RNE --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.003 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_RNE_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1644216 KB
+Time Elapsed: 5:32.05 sec
+----------------------------------------
+Task: 5 / 21
+PYTHON_COMMAND: python train.py --model_class catboost --model_name CatBoost --embedding_filename landmark_dim61.embeddings --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.3 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoost_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 4073148 KB
+Time Elapsed: 5:51.94 sec
+----------------------------------------
+Task: 6 / 21
+PYTHON_COMMAND: python train.py --model_class catboostnn --model_name CatBoostNN --embedding_filename landmark_dim61.embeddings --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.0003 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoostNN_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1642692 KB
+Time Elapsed: 5:30.32 sec
+----------------------------------------
+Task: 7 / 21
+PYTHON_COMMAND: python train.py --model_class rne --model_name RNE --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.003 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_RNE_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1629632 KB
+Time Elapsed: 5:32.11 sec
+----------------------------------------
+Task: 8 / 21
+PYTHON_COMMAND: python train.py --model_class catboost --model_name CatBoost --embedding_filename landmark_dim61.embeddings --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.3 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoost_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 4062508 KB
+Time Elapsed: 5:51.90 sec
+----------------------------------------
+Task: 9 / 21
+PYTHON_COMMAND: python train.py --model_class catboostnn --model_name CatBoostNN --embedding_filename landmark_dim61.embeddings --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.0003 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoostNN_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1647888 KB
+Time Elapsed: 5:31.49 sec
+----------------------------------------
+Task: 10 / 21
+PYTHON_COMMAND: python train.py --model_class rne --model_name RNE --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.003 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_RNE_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1730028 KB
+Time Elapsed: 5:34.86 sec
+----------------------------------------
+Task: 11 / 21
+PYTHON_COMMAND: python train.py --model_class catboost --model_name CatBoost --embedding_filename landmark_dim61.embeddings --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.3 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoost_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 4161900 KB
+Time Elapsed: 5:53.95 sec
+----------------------------------------
+Task: 12 / 21
+PYTHON_COMMAND: python train.py --model_class catboostnn --model_name CatBoostNN --embedding_filename landmark_dim61.embeddings --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.0003 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoostNN_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1738200 KB
+Time Elapsed: 5:34.20 sec
+----------------------------------------
+Task: 13 / 21
+PYTHON_COMMAND: python train.py --model_class rne --model_name RNE --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.003 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_RNE_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1701264 KB
+Time Elapsed: 5:34.33 sec
+----------------------------------------
+Task: 14 / 21
+PYTHON_COMMAND: python train.py --model_class catboost --model_name CatBoost --embedding_filename landmark_dim61.embeddings --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.3 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoost_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 3848300 KB
+Time Elapsed: 6:02.01 sec
+----------------------------------------
+Task: 15 / 21
+PYTHON_COMMAND: python train.py --model_class catboostnn --model_name CatBoostNN --embedding_filename landmark_dim61.embeddings --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.0003 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoostNN_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1732144 KB
+Time Elapsed: 5:37.34 sec
+----------------------------------------
+Task: 16 / 21
+PYTHON_COMMAND: python train.py --model_class rne --model_name RNE --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.001 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_RNE_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2013844 KB
+Time Elapsed: 5:45.72 sec
+----------------------------------------
+Task: 17 / 21
+PYTHON_COMMAND: python train.py --model_class catboost --model_name CatBoost --embedding_filename landmark_dim61.embeddings --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.3 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoost_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 4514868 KB
+Time Elapsed: 6:24.18 sec
+----------------------------------------
+Task: 18 / 21
+PYTHON_COMMAND: python train.py --model_class catboostnn --model_name CatBoostNN --embedding_filename landmark_dim61.embeddings --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.0003 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoostNN_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2114776 KB
+Time Elapsed: 5:55.29 sec
+----------------------------------------
+Task: 19 / 21
+PYTHON_COMMAND: python train.py --model_class rne --model_name RNE --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.001 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_RNE_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2119812 KB
+Time Elapsed: 5:52.22 sec
+----------------------------------------
+Task: 20 / 21
+PYTHON_COMMAND: python train.py --model_class catboost --model_name CatBoost --embedding_filename landmark_dim61.embeddings --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.3 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoost_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 4153980 KB
+Time Elapsed: 6:20.30 sec
+----------------------------------------
+Task: 21 / 21
+PYTHON_COMMAND: python train.py --model_class catboostnn --model_name CatBoostNN --embedding_filename landmark_dim61.embeddings --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.0003 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_CatBoostNN_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2369900 KB
+Time Elapsed: 6:00.60 sec
+----------------------------------------
+Finished.
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Total Time Elapsed: 0-02:01:30
+SLURM_JOBID=9820511
+SLURM_JOB_NAME=v39-real_workload_perturb_500k
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

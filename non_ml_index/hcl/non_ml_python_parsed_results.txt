@@ -1,0 +1,6 @@
+W_Jinan, 3 MB, 0.160286s, 4.6087 microseconds
+W_Shenzhen, 5 MB, 0.208301s, 4.6598 microseconds
+W_Chengdu, 8 MB, 0.52436s, 7.2823 microseconds
+W_Beijing, 89 MB, 4.63927s, 14.0360 microseconds
+W_NewYork, 211 MB, 6.77286s, 6.1327 microseconds
+W_Chicago, 501 MB, 24.6234s, 11.1106 microseconds

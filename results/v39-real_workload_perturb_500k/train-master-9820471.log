@@ -1,0 +1,199 @@
+EXECUTE mode: true
+SLURM mode: false
+----------------------------------------
+Task: 1 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1603240 KB
+Time Elapsed: 5:32.63 sec
+----------------------------------------
+Task: 2 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA_random --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_random_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1603232 KB
+Time Elapsed: 5:28.84 sec
+----------------------------------------
+Task: 3 / 21
+PYTHON_COMMAND: python train.py --model_class path2vec --model_name Path2vec --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Path2vec_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1648868 KB
+Time Elapsed: 5:33.23 sec
+----------------------------------------
+Task: 4 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1607268 KB
+Time Elapsed: 5:31.21 sec
+----------------------------------------
+Task: 5 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA_random --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_random_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1609196 KB
+Time Elapsed: 5:29.25 sec
+----------------------------------------
+Task: 6 / 21
+PYTHON_COMMAND: python train.py --model_class path2vec --model_name Path2vec --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Path2vec_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1641760 KB
+Time Elapsed: 5:34.43 sec
+----------------------------------------
+Task: 7 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1619092 KB
+Time Elapsed: 5:30.94 sec
+----------------------------------------
+Task: 8 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA_random --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_random_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1615324 KB
+Time Elapsed: 5:30.08 sec
+----------------------------------------
+Task: 9 / 21
+PYTHON_COMMAND: python train.py --model_class path2vec --model_name Path2vec --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Path2vec_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1647916 KB
+Time Elapsed: 5:32.40 sec
+----------------------------------------
+Task: 10 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1703900 KB
+Time Elapsed: 5:35.03 sec
+----------------------------------------
+Task: 11 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA_random --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_random_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1679480 KB
+Time Elapsed: 5:34.63 sec
+----------------------------------------
+Task: 12 / 21
+PYTHON_COMMAND: python train.py --model_class path2vec --model_name Path2vec --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Path2vec_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1740184 KB
+Time Elapsed: 5:32.36 sec
+----------------------------------------
+Task: 13 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1708260 KB
+Time Elapsed: 5:34.29 sec
+----------------------------------------
+Task: 14 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA_random --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_random_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1680776 KB
+Time Elapsed: 5:31.58 sec
+----------------------------------------
+Task: 15 / 21
+PYTHON_COMMAND: python train.py --model_class path2vec --model_name Path2vec --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Path2vec_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1739492 KB
+Time Elapsed: 5:37.84 sec
+----------------------------------------
+Task: 16 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2138620 KB
+Time Elapsed: 5:49.41 sec
+----------------------------------------
+Task: 17 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA_random --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_random_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1997500 KB
+Time Elapsed: 5:46.72 sec
+----------------------------------------
+Task: 18 / 21
+PYTHON_COMMAND: python train.py --model_class path2vec --model_name Path2vec --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Path2vec_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2092768 KB
+Time Elapsed: 5:44.83 sec
+----------------------------------------
+Task: 19 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2401560 KB
+Time Elapsed: 5:54.50 sec
+----------------------------------------
+Task: 20 / 21
+PYTHON_COMMAND: python train.py --model_class aneda --model_name ANEDA_random --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_ANEDA_random_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2077808 KB
+Time Elapsed: 5:44.15 sec
+----------------------------------------
+Task: 21 / 21
+PYTHON_COMMAND: python train.py --model_class path2vec --model_name Path2vec --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.03 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Path2vec_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2227168 KB
+Time Elapsed: 5:50.63 sec
+----------------------------------------
+Finished.
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Total Time Elapsed: 0-01:58:00
+SLURM_JOBID=9820471
+SLURM_JOB_NAME=v39-real_workload_perturb_500k
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

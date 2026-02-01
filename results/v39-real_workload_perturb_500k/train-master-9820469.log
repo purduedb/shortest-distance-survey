@@ -1,0 +1,199 @@
+EXECUTE mode: true
+SLURM mode: false
+----------------------------------------
+Task: 1 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1610032 KB
+Time Elapsed: 5:31.26 sec
+----------------------------------------
+Task: 2 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_mean_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1627428 KB
+Time Elapsed: 5:29.24 sec
+----------------------------------------
+Task: 3 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_sub_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1618248 KB
+Time Elapsed: 5:29.47 sec
+----------------------------------------
+Task: 4 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1612692 KB
+Time Elapsed: 5:29.72 sec
+----------------------------------------
+Task: 5 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_mean_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1623240 KB
+Time Elapsed: 5:28.43 sec
+----------------------------------------
+Task: 6 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_sub_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1628212 KB
+Time Elapsed: 5:31.62 sec
+----------------------------------------
+Task: 7 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1629188 KB
+Time Elapsed: 5:30.01 sec
+----------------------------------------
+Task: 8 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_mean_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1636900 KB
+Time Elapsed: 5:31.07 sec
+----------------------------------------
+Task: 9 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_sub_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1635016 KB
+Time Elapsed: 5:32.48 sec
+----------------------------------------
+Task: 10 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1706124 KB
+Time Elapsed: 5:34.95 sec
+----------------------------------------
+Task: 11 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_mean_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1717268 KB
+Time Elapsed: 5:35.38 sec
+----------------------------------------
+Task: 12 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_sub_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1717880 KB
+Time Elapsed: 5:36.24 sec
+----------------------------------------
+Task: 13 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1712312 KB
+Time Elapsed: 5:34.64 sec
+----------------------------------------
+Task: 14 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_mean_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1723696 KB
+Time Elapsed: 5:34.77 sec
+----------------------------------------
+Task: 15 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_sub_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1719572 KB
+Time Elapsed: 5:39.05 sec
+----------------------------------------
+Task: 16 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2134612 KB
+Time Elapsed: 5:52.93 sec
+----------------------------------------
+Task: 17 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_mean_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2137152 KB
+Time Elapsed: 5:52.66 sec
+----------------------------------------
+Task: 18 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_sub_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2147128 KB
+Time Elapsed: 5:50.52 sec
+----------------------------------------
+Task: 19 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2401808 KB
+Time Elapsed: 5:54.34 sec
+----------------------------------------
+Task: 20 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_mean_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2401816 KB
+Time Elapsed: 5:55.84 sec
+----------------------------------------
+Task: 21 / 21
+PYTHON_COMMAND: python train.py --model_class embeddingnn --model_name EmbeddingNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_EmbeddingNN_sub_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2404164 KB
+Time Elapsed: 5:54.30 sec
+----------------------------------------
+Finished.
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Total Time Elapsed: 0-01:58:30
+SLURM_JOBID=9820469
+SLURM_JOB_NAME=v39-real_workload_perturb_500k
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

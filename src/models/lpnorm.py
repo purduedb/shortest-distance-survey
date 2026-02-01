@@ -1,0 +1,58 @@
+import time
+from tqdm import tqdm
+import numpy as np
+
+import torch
+import torch.nn as nn
+
+from models.basemodel import BaseModel
+
+
+class LpNorm(BaseModel):
+    def __init__(self, p=2, node_attributes=None):
+        """
+        Initializes the LpNorm model.
+
+        Args:
+            p (int or float): The order of the norm (e.g., 2 for Euclidean distance, 1 for Manhattan distance).
+        """
+        super().__init__()
+        self.p = p
+
+        ## Define layers
+        # Embedding layer
+        node_features = torch.from_numpy(node_attributes).float()  # Convert node attributes to tensor
+        self.embedding = nn.Embedding.from_pretrained(node_features, freeze=True)
+
+    def forward(self, x1, x2):
+        """
+        Computes the Lp norm between node embeddings.
+
+        Args:
+            x1 (torch.Tensor): Node indices for the first set of nodes.
+            x2 (torch.Tensor): Node indices for the second set of nodes.
+
+        Returns:
+            torch.Tensor: Lp norm between the embeddings.
+        """
+        # Embedding layer
+        x1 = self.embedding(x1)
+        x2 = self.embedding(x2)
+
+        # Compute Lp norm
+        x = torch.norm(x1 - x2, p=self.p, dim=1, keepdim=True)
+
+        return x
+
+    def fit(self, **kwargs):
+        """
+        Dummy fit function to match the API of other models.
+        Since no training is required, this function does nothing.
+        """
+
+        return {
+            "loss_epoch_history": [],
+            "loss_iter_history": [],
+            "val_mre_epoch_history": [],
+            "time_history": [],
+        }

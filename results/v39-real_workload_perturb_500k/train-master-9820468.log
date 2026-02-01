@@ -1,0 +1,199 @@
+EXECUTE mode: true
+SLURM mode: false
+----------------------------------------
+Task: 1 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name SAGE --gnn_layer sage --loss_function smoothl1 --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_SAGE_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1825256 KB
+Time Elapsed: 5:35.73 sec
+----------------------------------------
+Task: 2 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GAT --gnn_layer gat --loss_function smoothl1 --disable_edge_weight --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GAT_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1830308 KB
+Time Elapsed: 5:33.65 sec
+----------------------------------------
+Task: 3 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GCN --gnn_layer gcn --loss_function smoothl1 --disable_edge_weight --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GCN_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1856144 KB
+Time Elapsed: 5:30.27 sec
+----------------------------------------
+Task: 4 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name SAGE --gnn_layer sage --loss_function smoothl1 --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_SAGE_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1822416 KB
+Time Elapsed: 5:32.32 sec
+----------------------------------------
+Task: 5 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GAT --gnn_layer gat --loss_function smoothl1 --disable_edge_weight --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GAT_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1847964 KB
+Time Elapsed: 5:29.79 sec
+----------------------------------------
+Task: 6 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GCN --gnn_layer gcn --loss_function smoothl1 --disable_edge_weight --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GCN_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1834476 KB
+Time Elapsed: 5:34.36 sec
+----------------------------------------
+Task: 7 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name SAGE --gnn_layer sage --loss_function smoothl1 --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_SAGE_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1823404 KB
+Time Elapsed: 5:32.61 sec
+----------------------------------------
+Task: 8 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GAT --gnn_layer gat --loss_function smoothl1 --disable_edge_weight --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GAT_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1843460 KB
+Time Elapsed: 5:35.18 sec
+----------------------------------------
+Task: 9 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GCN --gnn_layer gcn --loss_function smoothl1 --disable_edge_weight --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GCN_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1850228 KB
+Time Elapsed: 5:32.87 sec
+----------------------------------------
+Task: 10 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name SAGE --gnn_layer sage --loss_function smoothl1 --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_SAGE_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1885348 KB
+Time Elapsed: 5:31.25 sec
+----------------------------------------
+Task: 11 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GAT --gnn_layer gat --loss_function smoothl1 --disable_edge_weight --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GAT_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1909116 KB
+Time Elapsed: 5:31.10 sec
+----------------------------------------
+Task: 12 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GCN --gnn_layer gcn --loss_function smoothl1 --disable_edge_weight --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GCN_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1911248 KB
+Time Elapsed: 5:33.42 sec
+----------------------------------------
+Task: 13 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name SAGE --gnn_layer sage --loss_function smoothl1 --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_SAGE_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1889364 KB
+Time Elapsed: 5:35.87 sec
+----------------------------------------
+Task: 14 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GAT --gnn_layer gat --loss_function smoothl1 --disable_edge_weight --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GAT_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1927708 KB
+Time Elapsed: 5:36.73 sec
+----------------------------------------
+Task: 15 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GCN --gnn_layer gcn --loss_function smoothl1 --disable_edge_weight --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GCN_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1936292 KB
+Time Elapsed: 5:32.75 sec
+----------------------------------------
+Task: 16 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name SAGE --gnn_layer sage --loss_function smoothl1 --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_SAGE_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2224564 KB
+Time Elapsed: 5:48.09 sec
+----------------------------------------
+Task: 17 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GAT --gnn_layer gat --loss_function smoothl1 --disable_edge_weight --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GAT_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2233100 KB
+Time Elapsed: 5:48.35 sec
+----------------------------------------
+Task: 18 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GCN --gnn_layer gcn --loss_function smoothl1 --disable_edge_weight --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GCN_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2238452 KB
+Time Elapsed: 5:47.95 sec
+----------------------------------------
+Task: 19 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name SAGE --gnn_layer sage --loss_function smoothl1 --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_SAGE_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2307568 KB
+Time Elapsed: 5:52.88 sec
+----------------------------------------
+Task: 20 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GAT --gnn_layer gat --loss_function smoothl1 --disable_edge_weight --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GAT_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2325640 KB
+Time Elapsed: 5:45.73 sec
+----------------------------------------
+Task: 21 / 21
+PYTHON_COMMAND: python train.py --model_class rgnndist2vec --model_name GCN --gnn_layer gcn --loss_function smoothl1 --disable_edge_weight --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GCN_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2326088 KB
+Time Elapsed: 5:47.98 sec
+----------------------------------------
+Finished.
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Total Time Elapsed: 0-01:58:10
+SLURM_JOBID=9820468
+SLURM_JOB_NAME=v39-real_workload_perturb_500k
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

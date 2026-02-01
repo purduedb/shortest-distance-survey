@@ -1,0 +1,199 @@
+EXECUTE mode: true
+SLURM mode: false
+----------------------------------------
+Task: 1 / 21
+PYTHON_COMMAND: python train.py --model_class geodnn --model_name GeoDNN --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GeoDNN_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1582780 KB
+Time Elapsed: 5:34.98 sec
+----------------------------------------
+Task: 2 / 21
+PYTHON_COMMAND: python train.py --model_class vdist2vec --model_name Vdist2vec --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Vdist2vec_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1617308 KB
+Time Elapsed: 5:31.01 sec
+----------------------------------------
+Task: 3 / 21
+PYTHON_COMMAND: python train.py --model_class ndist2vec --model_name Ndist2vec --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Ndist2vec_W_Jinan.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1619700 KB
+Time Elapsed: 5:32.69 sec
+----------------------------------------
+Task: 4 / 21
+PYTHON_COMMAND: python train.py --model_class geodnn --model_name GeoDNN --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GeoDNN_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1600508 KB
+Time Elapsed: 5:30.86 sec
+----------------------------------------
+Task: 5 / 21
+PYTHON_COMMAND: python train.py --model_class vdist2vec --model_name Vdist2vec --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Vdist2vec_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1616772 KB
+Time Elapsed: 5:31.48 sec
+----------------------------------------
+Task: 6 / 21
+PYTHON_COMMAND: python train.py --model_class ndist2vec --model_name Ndist2vec --data_dir W_Shenzhen --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Ndist2vec_W_Shenzhen.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1620884 KB
+Time Elapsed: 5:32.30 sec
+----------------------------------------
+Task: 7 / 21
+PYTHON_COMMAND: python train.py --model_class geodnn --model_name GeoDNN --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GeoDNN_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1606832 KB
+Time Elapsed: 5:31.07 sec
+----------------------------------------
+Task: 8 / 21
+PYTHON_COMMAND: python train.py --model_class vdist2vec --model_name Vdist2vec --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Vdist2vec_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1625768 KB
+Time Elapsed: 5:32.01 sec
+----------------------------------------
+Task: 9 / 21
+PYTHON_COMMAND: python train.py --model_class ndist2vec --model_name Ndist2vec --data_dir W_Chengdu --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Ndist2vec_W_Chengdu.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1655260 KB
+Time Elapsed: 5:33.49 sec
+----------------------------------------
+Task: 10 / 21
+PYTHON_COMMAND: python train.py --model_class geodnn --model_name GeoDNN --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GeoDNN_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1675104 KB
+Time Elapsed: 5:35.86 sec
+----------------------------------------
+Task: 11 / 21
+PYTHON_COMMAND: python train.py --model_class vdist2vec --model_name Vdist2vec --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Vdist2vec_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1687908 KB
+Time Elapsed: 5:33.28 sec
+----------------------------------------
+Task: 12 / 21
+PYTHON_COMMAND: python train.py --model_class ndist2vec --model_name Ndist2vec --data_dir W_Beijing --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Ndist2vec_W_Beijing.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1685244 KB
+Time Elapsed: 5:36.23 sec
+----------------------------------------
+Task: 13 / 21
+PYTHON_COMMAND: python train.py --model_class geodnn --model_name GeoDNN --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GeoDNN_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1676620 KB
+Time Elapsed: 5:34.59 sec
+----------------------------------------
+Task: 14 / 21
+PYTHON_COMMAND: python train.py --model_class vdist2vec --model_name Vdist2vec --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Vdist2vec_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1687116 KB
+Time Elapsed: 5:33.81 sec
+----------------------------------------
+Task: 15 / 21
+PYTHON_COMMAND: python train.py --model_class ndist2vec --model_name Ndist2vec --data_dir W_Shanghai --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Ndist2vec_W_Shanghai.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1691612 KB
+Time Elapsed: 5:33.55 sec
+----------------------------------------
+Task: 16 / 21
+PYTHON_COMMAND: python train.py --model_class geodnn --model_name GeoDNN --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GeoDNN_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 1988956 KB
+Time Elapsed: 5:44.92 sec
+----------------------------------------
+Task: 17 / 21
+PYTHON_COMMAND: python train.py --model_class vdist2vec --model_name Vdist2vec --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Vdist2vec_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2000928 KB
+Time Elapsed: 5:43.56 sec
+----------------------------------------
+Task: 18 / 21
+PYTHON_COMMAND: python train.py --model_class ndist2vec --model_name Ndist2vec --data_dir W_NewYork --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Ndist2vec_W_NewYork.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2008020 KB
+Time Elapsed: 5:43.15 sec
+----------------------------------------
+Task: 19 / 21
+PYTHON_COMMAND: python train.py --model_class geodnn --model_name GeoDNN --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_GeoDNN_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2070164 KB
+Time Elapsed: 5:45.69 sec
+----------------------------------------
+Task: 20 / 21
+PYTHON_COMMAND: python train.py --model_class vdist2vec --model_name Vdist2vec --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Vdist2vec_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2089660 KB
+Time Elapsed: 5:45.46 sec
+----------------------------------------
+Task: 21 / 21
+PYTHON_COMMAND: python train.py --model_class ndist2vec --model_name Ndist2vec --data_dir W_Chicago --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+LOG_FILE: ../results/v39-real_workload_perturb_500k/train_Ndist2vec_W_Chicago.log
+EXECUTE: true (executing the command)
+
+
+Max CPU Memory: 2118356 KB
+Time Elapsed: 5:48.14 sec
+----------------------------------------
+Finished.
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Total Time Elapsed: 0-01:57:49
+SLURM_JOBID=9820467
+SLURM_JOB_NAME=v39-real_workload_perturb_500k
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

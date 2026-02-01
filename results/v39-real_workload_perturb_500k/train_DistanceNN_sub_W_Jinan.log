@@ -1,0 +1,633 @@
+PYTHON_COMMAND: python train.py --model_class distancenn --model_name DistanceNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract --data_dir W_Jinan --query_dir real_workload_perturb_500k --log_dir ../results/v39-real_workload_perturb_500k --eval_runs 0 --seed 1234 --device cuda --time_limit 5 --learning_rate 0.01 --epochs 12000 --validate
+Resolving data_dir: `W_Jinan` --> `../data/W_Jinan`
+Resolving query_dir: `real_workload_perturb_500k` --> `../data/W_Jinan/real_workload_perturb_500k`
+Resolving num_workers: `None` --> `16`
+Resolving embedding_filename: `node2vec_dim64_epochs1_unweighted.embeddings` --> `../data/W_Jinan/node2vec_dim64_epochs1_unweighted.embeddings`
+Arguments:
+  - model_class         : distancenn
+  - model_name          : DistanceNN_sub
+  - data_dir            : ../data/W_Jinan
+  - query_dir           : ../data/W_Jinan/real_workload_perturb_500k
+  - batch_size_train    : 1024
+  - batch_size_test     : 1048576
+  - learning_rate       : 0.01
+  - optimizer_type      : adam
+  - loss_function       : mse
+  - epochs              : 12000
+  - time_limit          : 5.0
+  - validate            : True
+  - eval_runs           : 0
+  - display_step        : 5
+  - seed                : 1234
+  - device              : cuda
+  - num_workers         : 16
+  - log_dir             : ../results/v39-real_workload_perturb_500k
+  - debug               : False
+  - embedding_dim       : 64
+  - p_norm              : 1
+  - landmark_selection  : random
+  - gnn_layer           : gat
+  - disable_edge_weight : False
+  - aggregation_method  : subtract
+  - embedding_filename  : ../data/W_Jinan/node2vec_dim64_epochs1_unweighted.embeddings
+  - select_landmarks_from_train: False
+  - distance_measure    : inv_dotproduct
+Seed set to 1234
+[92mReading edges: ../data/W_Jinan/W_Jinan.edges[0m
+[93mWarning: The node ids are left-shifted by 1 (i.e., node ids start from `0 to n-1` instead of `1 to n`) in the loaded graph.[0m
+Detected delimiter: `,`
+[92mReading nodes: ../data/W_Jinan/W_Jinan.nodes[0m
+[93mWarning: The node ids are left-shifted by 1 (i.e., node ids start from `0 to n-1` instead of `1 to n`) in the loaded graph.[0m
+Detected delimiter: `,`
+Loaded Graph:
+  - Data name: W_Jinan
+  - No. of nodes: 8908
+  - No. of edges: 14070
+  - Nodes data: [(0, {'feature': [505678.5149882232, 4056089.911714096]}), (1, {'feature': [505770.08172435686, 4056030.848836959]}), (5877, {'feature': [505645.733199374, 4055649.9546133857]}), (8058, {'feature': [505755.737373046, 4056095.176733334]}), (8071, {'feature': [505589.5880390714, 4056077.65136935]})]...
+  - Edges data: [(0, 1, {'weight': 122.0}), (0, 5877, {'weight': 459.0}), (0, 8058, {'weight': 77.0}), (0, 8071, {'weight': 93.0}), (1, 1113, {'weight': 52.0})]...
+Edgelist.shape:  (14070, 3)
+Node Attributes.shape:  (8908, 2)
+[92mReading dataset: ../data/W_Jinan/real_workload_perturb_500k/W_Jinan_train.queries[0m
+[93mWarning: The node ids are left-shifted by 1 (i.e., node ids start from `0 to n-1` instead of `1 to n`) in the loaded graph.[0m
+Detected delimiter: `,`
+  - Total number of queries: 400000
+[92mReading dataset: ../data/W_Jinan/real_workload_perturb_500k/W_Jinan_test.queries[0m
+[93mWarning: The node ids are left-shifted by 1 (i.e., node ids start from `0 to n-1` instead of `1 to n`) in the loaded graph.[0m
+Detected delimiter: `,`
+  - Total number of queries: 100000
+Distance matrix of size (400000,) created successfully
+Replicating queries to reach target size
+  - Original size: 100000
+  - New size:      1000000
+Distance matrix of size (1000000,) created successfully
+Train dataset...
+  - No. of samples: 400000
+  - Min/Max distance: 1.00/29148.00
+  - Mean/Std distance: 4821.99/2811.19
+Test dataset...
+  - No. of samples: 1000000
+  - Min/Max distance: 1.00/26982.00
+  - Mean/Std distance: 4826.76/2812.58
+Creating train dataloader...
+  - Batch size: 1024
+  - No. of batches: 391
+  - Number of workers: 16
+  - Pin memory: True
+Creating val dataloader...
+  - Batch size: 1024
+  - No. of batches: 977
+  - Number of workers: 16
+  - Pin memory: True
+Creating test dataloader...
+  - Batch size: 1048576
+  - No. of batches: 1
+  - Number of workers: 16
+  - Pin memory: True
+[92mSaving plot: ../results/v39-real_workload_perturb_500k/plots/histogram_distances_W_Jinan_real_workload_perturb_500k.png[0m
+Detected delimiter: `,`
+[92mReading embeddings: ../data/W_Jinan/node2vec_dim64_epochs1_unweighted.embeddings[0m
+[93mWarning: The node ids are left-shifted by 1 (i.e., node ids start from `0 to n-1` instead of `1 to n`) in the loaded graph.[0m
+  - Embeddings shape: (8908, 64)
+Initializing DistanceNN with aggregation method: subtract and embedding size: 64
+Initializing node embeddings from provided attributes. Shape: (8908, 64)
+Model Summary:
+OptimizedModule(
+  (_orig_mod): DistanceNN(
+    (embedding): Embedding(8908, 64)
+    (feed_forward): Sequential(
+      (0): Linear(in_features=64, out_features=64, bias=True)
+      (1): ReLU()
+      (2): Dropout(p=0.4, inplace=False)
+      (3): Linear(in_features=64, out_features=12, bias=True)
+      (4): ReLU()
+      (5): Dropout(p=0.4, inplace=False)
+      (6): Linear(in_features=12, out_features=1, bias=True)
+      (7): Softplus(beta=1.0, threshold=20.0)
+    )
+  )
+)
+Model parameters size: 4953
+Loss function: MSELoss()
+Optimizer: Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.01
+    maximize: False
+    weight_decay: 0
+)
+Using Device: cuda
+Starting training...
+Epoch:  1/12000, Batch:   78 (1024 samples), Train Loss:  15603594.00
+Epoch:  1/12000, Batch:  156 (1024 samples), Train Loss:   8014597.00
+Epoch:  1/12000, Batch:  234 (1024 samples), Train Loss:   7730463.50
+Epoch:  1/12000, Batch:  312 (1024 samples), Train Loss:   7310132.00
+Epoch:  1/12000, Batch:  390 (1024 samples), Train Loss:   7289500.00
+Epoch:  1/12000, Time elapsed/remaining/total: 0.07/810.25/810.32 min, Train Loss:  11841634.30, Val MRE: 47.87%
+Epoch:  2/12000, Batch:   78 (1024 samples), Train Loss:   6532637.50
+Epoch:  2/12000, Batch:  156 (1024 samples), Train Loss:   6275952.00
+Epoch:  2/12000, Batch:  234 (1024 samples), Train Loss:   7355442.50
+Epoch:  2/12000, Batch:  312 (1024 samples), Train Loss:   5915931.00
+Epoch:  2/12000, Batch:  390 (1024 samples), Train Loss:   6349808.00
+Epoch:  2/12000, Time elapsed/remaining/total: 0.13/769.12/769.25 min, Train Loss:   6546480.58, Val MRE: 35.08%
+Epoch:  3/12000, Batch:   78 (1024 samples), Train Loss:   5574465.00
+Epoch:  3/12000, Batch:  156 (1024 samples), Train Loss:   6628622.00
+Epoch:  3/12000, Batch:  234 (1024 samples), Train Loss:   6222562.50
+Epoch:  3/12000, Batch:  312 (1024 samples), Train Loss:   5843125.00
+Epoch:  3/12000, Batch:  390 (1024 samples), Train Loss:   5866604.00
+Epoch:  3/12000, Time elapsed/remaining/total: 0.19/756.97/757.16 min, Train Loss:   6139651.93, Val MRE: 28.95%
+Epoch:  4/12000, Batch:   78 (1024 samples), Train Loss:   6766436.50
+Epoch:  4/12000, Batch:  156 (1024 samples), Train Loss:   5805123.00
+Epoch:  4/12000, Batch:  234 (1024 samples), Train Loss:   5697808.00
+Epoch:  4/12000, Batch:  312 (1024 samples), Train Loss:   6090621.00
+Epoch:  4/12000, Batch:  390 (1024 samples), Train Loss:   5798973.00
+Epoch:  4/12000, Time elapsed/remaining/total: 0.25/756.56/756.81 min, Train Loss:   6013704.34, Val MRE: 26.64%
+Epoch:  5/12000, Batch:   78 (1024 samples), Train Loss:   6162514.00
+Epoch:  5/12000, Batch:  156 (1024 samples), Train Loss:   6678423.00
+Epoch:  5/12000, Batch:  234 (1024 samples), Train Loss:   6161752.00
+Epoch:  5/12000, Batch:  312 (1024 samples), Train Loss:   6170221.00
+Epoch:  5/12000, Batch:  390 (1024 samples), Train Loss:   6423227.50
+Epoch:  5/12000, Time elapsed/remaining/total: 0.32/756.52/756.84 min, Train Loss:   5904741.28, Val MRE: 25.55%
+Epoch:  6/12000, Batch:   78 (1024 samples), Train Loss:   5753204.00
+Epoch:  6/12000, Batch:  156 (1024 samples), Train Loss:   6344387.50
+Epoch:  6/12000, Batch:  234 (1024 samples), Train Loss:   5432840.00
+Epoch:  6/12000, Batch:  312 (1024 samples), Train Loss:   6713926.00
+Epoch:  6/12000, Batch:  390 (1024 samples), Train Loss:   5613525.00
+Epoch:  6/12000, Time elapsed/remaining/total: 0.38/756.50/756.88 min, Train Loss:   5874532.38, Val MRE: 25.17%
+Epoch:  7/12000, Batch:   78 (1024 samples), Train Loss:   5830776.00
+Epoch:  7/12000, Batch:  156 (1024 samples), Train Loss:   4919767.00
+Epoch:  7/12000, Batch:  234 (1024 samples), Train Loss:   6060862.50
+Epoch:  7/12000, Batch:  312 (1024 samples), Train Loss:   4991893.00
+Epoch:  7/12000, Batch:  390 (1024 samples), Train Loss:   5878365.50
+Epoch:  7/12000, Time elapsed/remaining/total: 0.44/756.53/756.97 min, Train Loss:   5822415.40, Val MRE: 25.22%
+Epoch:  8/12000, Batch:   78 (1024 samples), Train Loss:   5719829.00
+Epoch:  8/12000, Batch:  156 (1024 samples), Train Loss:   5698302.00
+Epoch:  8/12000, Batch:  234 (1024 samples), Train Loss:   6418371.00
+Epoch:  8/12000, Batch:  312 (1024 samples), Train Loss:   5651203.00
+Epoch:  8/12000, Batch:  390 (1024 samples), Train Loss:   5334502.00
+Epoch:  8/12000, Time elapsed/remaining/total: 0.50/755.28/755.79 min, Train Loss:   5797006.85, Val MRE: 25.25%
+Epoch:  9/12000, Batch:   78 (1024 samples), Train Loss:   5554772.50
+Epoch:  9/12000, Batch:  156 (1024 samples), Train Loss:   5241063.00
+Epoch:  9/12000, Batch:  234 (1024 samples), Train Loss:   5386288.50
+Epoch:  9/12000, Batch:  312 (1024 samples), Train Loss:   6611794.00
+Epoch:  9/12000, Batch:  390 (1024 samples), Train Loss:   5562273.00
+Epoch:  9/12000, Time elapsed/remaining/total: 0.57/753.11/753.68 min, Train Loss:   5792471.42, Val MRE: 25.40%
+Epoch: 10/12000, Batch:   78 (1024 samples), Train Loss:   5805811.00
+Epoch: 10/12000, Batch:  156 (1024 samples), Train Loss:   6384678.50
+Epoch: 10/12000, Batch:  234 (1024 samples), Train Loss:   6272402.00
+Epoch: 10/12000, Batch:  312 (1024 samples), Train Loss:   5126913.00
+Epoch: 10/12000, Batch:  390 (1024 samples), Train Loss:   5522197.00
+Epoch: 10/12000, Time elapsed/remaining/total: 0.63/752.42/753.05 min, Train Loss:   5780090.68, Val MRE: 25.80%
+Epoch: 11/12000, Batch:   78 (1024 samples), Train Loss:   5865432.50
+Epoch: 11/12000, Batch:  156 (1024 samples), Train Loss:   5774602.00
+Epoch: 11/12000, Batch:  234 (1024 samples), Train Loss:   5407162.00
+Epoch: 11/12000, Batch:  312 (1024 samples), Train Loss:   6251717.50
+Epoch: 11/12000, Batch:  390 (1024 samples), Train Loss:   6163668.00
+Epoch: 11/12000, Time elapsed/remaining/total: 0.69/753.18/753.87 min, Train Loss:   5764484.03, Val MRE: 25.82%
+Epoch: 12/12000, Batch:   78 (1024 samples), Train Loss:   5562100.50
+Epoch: 12/12000, Batch:  156 (1024 samples), Train Loss:   5405466.50
+Epoch: 12/12000, Batch:  234 (1024 samples), Train Loss:   4813436.00
+Epoch: 12/12000, Batch:  312 (1024 samples), Train Loss:   6050030.00
+Epoch: 12/12000, Batch:  390 (1024 samples), Train Loss:   5149512.00
+Epoch: 12/12000, Time elapsed/remaining/total: 0.75/753.16/753.92 min, Train Loss:   5740715.70, Val MRE: 26.46%
+Epoch: 13/12000, Batch:   78 (1024 samples), Train Loss:   6020547.00
+Epoch: 13/12000, Batch:  156 (1024 samples), Train Loss:   5761846.00
+Epoch: 13/12000, Batch:  234 (1024 samples), Train Loss:   6153863.00
+Epoch: 13/12000, Batch:  312 (1024 samples), Train Loss:   6612982.00
+Epoch: 13/12000, Batch:  390 (1024 samples), Train Loss:   5912902.00
+Epoch: 13/12000, Time elapsed/remaining/total: 0.82/753.23/754.04 min, Train Loss:   5729565.37, Val MRE: 26.66%
+Epoch: 14/12000, Batch:   78 (1024 samples), Train Loss:   5389314.50
+Epoch: 14/12000, Batch:  156 (1024 samples), Train Loss:   5159124.50
+Epoch: 14/12000, Batch:  234 (1024 samples), Train Loss:   5913439.00
+Epoch: 14/12000, Batch:  312 (1024 samples), Train Loss:   5865654.00
+Epoch: 14/12000, Batch:  390 (1024 samples), Train Loss:   5443227.00
+Epoch: 14/12000, Time elapsed/remaining/total: 0.89/760.30/761.19 min, Train Loss:   5721855.77, Val MRE: 27.12%
+Epoch: 15/12000, Batch:   78 (1024 samples), Train Loss:   5782587.00
+Epoch: 15/12000, Batch:  156 (1024 samples), Train Loss:   5448218.00
+Epoch: 15/12000, Batch:  234 (1024 samples), Train Loss:   5402828.00
+Epoch: 15/12000, Batch:  312 (1024 samples), Train Loss:   5858394.00
+Epoch: 15/12000, Batch:  390 (1024 samples), Train Loss:   5395787.00
+Epoch: 15/12000, Time elapsed/remaining/total: 0.96/766.14/767.10 min, Train Loss:   5685411.19, Val MRE: 27.59%
+Epoch: 16/12000, Batch:   78 (1024 samples), Train Loss:   5860109.00
+Epoch: 16/12000, Batch:  156 (1024 samples), Train Loss:   5777887.00
+Epoch: 16/12000, Batch:  234 (1024 samples), Train Loss:   5166011.00
+Epoch: 16/12000, Batch:  312 (1024 samples), Train Loss:   5629365.00
+Epoch: 16/12000, Batch:  390 (1024 samples), Train Loss:   5656941.00
+Epoch: 16/12000, Time elapsed/remaining/total: 1.03/770.66/771.69 min, Train Loss:   5681837.60, Val MRE: 27.89%
+Epoch: 17/12000, Batch:   78 (1024 samples), Train Loss:   4951750.50
+Epoch: 17/12000, Batch:  156 (1024 samples), Train Loss:   5787281.50
+Epoch: 17/12000, Batch:  234 (1024 samples), Train Loss:   5712382.00
+Epoch: 17/12000, Batch:  312 (1024 samples), Train Loss:   5595658.00
+Epoch: 17/12000, Batch:  390 (1024 samples), Train Loss:   6734463.00
+Epoch: 17/12000, Time elapsed/remaining/total: 1.10/778.26/779.37 min, Train Loss:   5677197.46, Val MRE: 28.27%
+Epoch: 18/12000, Batch:   78 (1024 samples), Train Loss:   5289819.00
+Epoch: 18/12000, Batch:  156 (1024 samples), Train Loss:   5595249.50
+Epoch: 18/12000, Batch:  234 (1024 samples), Train Loss:   5826289.50
+Epoch: 18/12000, Batch:  312 (1024 samples), Train Loss:   6431755.50
+Epoch: 18/12000, Batch:  390 (1024 samples), Train Loss:   5522525.00
+Epoch: 18/12000, Time elapsed/remaining/total: 1.19/792.80/793.99 min, Train Loss:   5659440.66, Val MRE: 28.89%
+Epoch: 19/12000, Batch:   78 (1024 samples), Train Loss:   6048662.00
+Epoch: 19/12000, Batch:  156 (1024 samples), Train Loss:   4640430.00
+Epoch: 19/12000, Batch:  234 (1024 samples), Train Loss:   4883397.50
+Epoch: 19/12000, Batch:  312 (1024 samples), Train Loss:   5812616.00
+Epoch: 19/12000, Batch:  390 (1024 samples), Train Loss:   5468196.00
+Epoch: 19/12000, Time elapsed/remaining/total: 1.25/790.96/792.22 min, Train Loss:   5219445.54, Val MRE: 28.79%
+Epoch: 20/12000, Batch:   78 (1024 samples), Train Loss:   4890139.00
+Epoch: 20/12000, Batch:  156 (1024 samples), Train Loss:   4849352.50
+Epoch: 20/12000, Batch:  234 (1024 samples), Train Loss:   4961528.00
+Epoch: 20/12000, Batch:  312 (1024 samples), Train Loss:   4809759.00
+Epoch: 20/12000, Batch:  390 (1024 samples), Train Loss:   5505507.00
+Epoch: 20/12000, Time elapsed/remaining/total: 1.32/790.13/791.45 min, Train Loss:   5132143.64, Val MRE: 29.44%
+Epoch: 21/12000, Batch:   78 (1024 samples), Train Loss:   5067717.00
+Epoch: 21/12000, Batch:  156 (1024 samples), Train Loss:   5478585.00
+Epoch: 21/12000, Batch:  234 (1024 samples), Train Loss:   6358044.50
+Epoch: 21/12000, Batch:  312 (1024 samples), Train Loss:   5352661.50
+Epoch: 21/12000, Batch:  390 (1024 samples), Train Loss:   5061897.50
+Epoch: 21/12000, Time elapsed/remaining/total: 1.38/789.29/790.67 min, Train Loss:   5155406.53, Val MRE: 30.22%
+Epoch: 22/12000, Batch:   78 (1024 samples), Train Loss:   5514389.00
+Epoch: 22/12000, Batch:  156 (1024 samples), Train Loss:   4612500.00
+Epoch: 22/12000, Batch:  234 (1024 samples), Train Loss:   5245387.00
+Epoch: 22/12000, Batch:  312 (1024 samples), Train Loss:   5145178.00
+Epoch: 22/12000, Batch:  390 (1024 samples), Train Loss:   5019008.00
+Epoch: 22/12000, Time elapsed/remaining/total: 1.44/786.18/787.62 min, Train Loss:   5096892.23, Val MRE: 30.72%
+Epoch: 23/12000, Batch:   78 (1024 samples), Train Loss:   4882425.00
+Epoch: 23/12000, Batch:  156 (1024 samples), Train Loss:   4631104.00
+Epoch: 23/12000, Batch:  234 (1024 samples), Train Loss:   5219429.50
+Epoch: 23/12000, Batch:  312 (1024 samples), Train Loss:   5375404.50
+Epoch: 23/12000, Batch:  390 (1024 samples), Train Loss:   5102114.00
+Epoch: 23/12000, Time elapsed/remaining/total: 1.51/785.45/786.96 min, Train Loss:   5129564.43, Val MRE: 31.69%
+Epoch: 24/12000, Batch:   78 (1024 samples), Train Loss:   5487845.00
+Epoch: 24/12000, Batch:  156 (1024 samples), Train Loss:   5288070.00
+Epoch: 24/12000, Batch:  234 (1024 samples), Train Loss:   4990158.50
+Epoch: 24/12000, Batch:  312 (1024 samples), Train Loss:   5528298.00
+Epoch: 24/12000, Batch:  390 (1024 samples), Train Loss:   4819951.50
+Epoch: 24/12000, Time elapsed/remaining/total: 1.57/783.70/785.27 min, Train Loss:   5121392.39, Val MRE: 32.28%
+Epoch: 25/12000, Batch:   78 (1024 samples), Train Loss:   4965457.00
+Epoch: 25/12000, Batch:  156 (1024 samples), Train Loss:   4865718.00
+Epoch: 25/12000, Batch:  234 (1024 samples), Train Loss:   5462206.00
+Epoch: 25/12000, Batch:  312 (1024 samples), Train Loss:   4761772.00
+Epoch: 25/12000, Batch:  390 (1024 samples), Train Loss:   4989620.00
+Epoch: 25/12000, Time elapsed/remaining/total: 1.63/783.16/784.79 min, Train Loss:   5127923.53, Val MRE: 32.96%
+Epoch: 26/12000, Batch:   78 (1024 samples), Train Loss:   5161984.00
+Epoch: 26/12000, Batch:  156 (1024 samples), Train Loss:   5336127.00
+Epoch: 26/12000, Batch:  234 (1024 samples), Train Loss:   4836190.00
+Epoch: 26/12000, Batch:  312 (1024 samples), Train Loss:   4901004.00
+Epoch: 26/12000, Batch:  390 (1024 samples), Train Loss:   5544999.50
+Epoch: 26/12000, Time elapsed/remaining/total: 1.70/781.66/783.36 min, Train Loss:   5098056.51, Val MRE: 33.70%
+Epoch: 27/12000, Batch:   78 (1024 samples), Train Loss:   5427310.00
+Epoch: 27/12000, Batch:  156 (1024 samples), Train Loss:   4798314.00
+Epoch: 27/12000, Batch:  234 (1024 samples), Train Loss:   5539917.00
+Epoch: 27/12000, Batch:  312 (1024 samples), Train Loss:   5167771.00
+Epoch: 27/12000, Batch:  390 (1024 samples), Train Loss:   5132387.50
+Epoch: 27/12000, Time elapsed/remaining/total: 1.76/779.93/781.68 min, Train Loss:   5090441.51, Val MRE: 34.39%
+Epoch: 28/12000, Batch:   78 (1024 samples), Train Loss:   5541937.00
+Epoch: 28/12000, Batch:  156 (1024 samples), Train Loss:   5197754.50
+Epoch: 28/12000, Batch:  234 (1024 samples), Train Loss:   5168171.50
+Epoch: 28/12000, Batch:  312 (1024 samples), Train Loss:   5324586.00
+Epoch: 28/12000, Batch:  390 (1024 samples), Train Loss:   5388312.00
+Epoch: 28/12000, Time elapsed/remaining/total: 1.82/779.23/781.06 min, Train Loss:   5071104.56, Val MRE: 34.96%
+Epoch: 29/12000, Batch:   78 (1024 samples), Train Loss:   4799857.00
+Epoch: 29/12000, Batch:  156 (1024 samples), Train Loss:   5192464.00
+Epoch: 29/12000, Batch:  234 (1024 samples), Train Loss:   4581901.00
+Epoch: 29/12000, Batch:  312 (1024 samples), Train Loss:   5241411.00
+Epoch: 29/12000, Batch:  390 (1024 samples), Train Loss:   4586346.00
+Epoch: 29/12000, Time elapsed/remaining/total: 1.89/779.14/781.03 min, Train Loss:   5083383.61, Val MRE: 35.55%
+Epoch: 30/12000, Batch:   78 (1024 samples), Train Loss:   5561725.00
+Epoch: 30/12000, Batch:  156 (1024 samples), Train Loss:   4324012.00
+Epoch: 30/12000, Batch:  234 (1024 samples), Train Loss:   4607882.50
+Epoch: 30/12000, Batch:  312 (1024 samples), Train Loss:   5076882.50
+Epoch: 30/12000, Batch:  390 (1024 samples), Train Loss:   4762331.00
+Epoch: 30/12000, Time elapsed/remaining/total: 1.95/778.39/780.34 min, Train Loss:   5073030.37, Val MRE: 36.10%
+Epoch: 31/12000, Batch:   78 (1024 samples), Train Loss:   4936708.00
+Epoch: 31/12000, Batch:  156 (1024 samples), Train Loss:   5123251.50
+Epoch: 31/12000, Batch:  234 (1024 samples), Train Loss:   5280426.00
+Epoch: 31/12000, Batch:  312 (1024 samples), Train Loss:   4786556.00
+Epoch: 31/12000, Batch:  390 (1024 samples), Train Loss:   4525573.50
+Epoch: 31/12000, Time elapsed/remaining/total: 2.02/778.21/780.23 min, Train Loss:   5079338.20, Val MRE: 36.68%
+Epoch: 32/12000, Batch:   78 (1024 samples), Train Loss:   4738686.00
+Epoch: 32/12000, Batch:  156 (1024 samples), Train Loss:   4824954.50
+Epoch: 32/12000, Batch:  234 (1024 samples), Train Loss:   5159836.00
+Epoch: 32/12000, Batch:  312 (1024 samples), Train Loss:   4699129.00
+Epoch: 32/12000, Batch:  390 (1024 samples), Train Loss:   6064920.00
+Epoch: 32/12000, Time elapsed/remaining/total: 2.08/776.93/779.01 min, Train Loss:   5064913.40, Val MRE: 37.00%
+Epoch: 33/12000, Batch:   78 (1024 samples), Train Loss:   4786422.00
+Epoch: 33/12000, Batch:  156 (1024 samples), Train Loss:   4440721.50
+Epoch: 33/12000, Batch:  234 (1024 samples), Train Loss:   5098591.00
+Epoch: 33/12000, Batch:  312 (1024 samples), Train Loss:   5842675.50
+Epoch: 33/12000, Batch:  390 (1024 samples), Train Loss:   4847919.50
+Epoch: 33/12000, Time elapsed/remaining/total: 2.14/776.17/778.31 min, Train Loss:   5062463.00, Val MRE: 37.50%
+Epoch: 34/12000, Batch:   78 (1024 samples), Train Loss:   5556112.50
+Epoch: 34/12000, Batch:  156 (1024 samples), Train Loss:   5319398.00
+Epoch: 34/12000, Batch:  234 (1024 samples), Train Loss:   4375944.00
+Epoch: 34/12000, Batch:  312 (1024 samples), Train Loss:   4506457.50
+Epoch: 34/12000, Batch:  390 (1024 samples), Train Loss:   4717947.50
+Epoch: 34/12000, Time elapsed/remaining/total: 2.20/775.46/777.66 min, Train Loss:   4904402.28, Val MRE: 36.88%
+Epoch: 35/12000, Batch:   78 (1024 samples), Train Loss:   5273951.00
+Epoch: 35/12000, Batch:  156 (1024 samples), Train Loss:   4744440.50
+Epoch: 35/12000, Batch:  234 (1024 samples), Train Loss:   4757794.50
+Epoch: 35/12000, Batch:  312 (1024 samples), Train Loss:   4351623.50
+Epoch: 35/12000, Batch:  390 (1024 samples), Train Loss:   5070588.50
+Epoch: 35/12000, Time elapsed/remaining/total: 2.27/774.63/776.90 min, Train Loss:   4683486.31, Val MRE: 37.59%
+Epoch: 36/12000, Batch:   78 (1024 samples), Train Loss:   4491109.00
+Epoch: 36/12000, Batch:  156 (1024 samples), Train Loss:   4292034.00
+Epoch: 36/12000, Batch:  234 (1024 samples), Train Loss:   4428804.50
+Epoch: 36/12000, Batch:  312 (1024 samples), Train Loss:   4590122.00
+Epoch: 36/12000, Batch:  390 (1024 samples), Train Loss:   4551769.50
+Epoch: 36/12000, Time elapsed/remaining/total: 2.33/773.59/775.92 min, Train Loss:   4673203.79, Val MRE: 38.06%
+Epoch: 37/12000, Batch:   78 (1024 samples), Train Loss:   5338283.00
+Epoch: 37/12000, Batch:  156 (1024 samples), Train Loss:   4628878.00
+Epoch: 37/12000, Batch:  234 (1024 samples), Train Loss:   5511463.50
+Epoch: 37/12000, Batch:  312 (1024 samples), Train Loss:   4770011.50
+Epoch: 37/12000, Batch:  390 (1024 samples), Train Loss:   4146835.25
+Epoch: 37/12000, Time elapsed/remaining/total: 2.39/773.12/775.51 min, Train Loss:   4653712.14, Val MRE: 38.34%
+Epoch: 38/12000, Batch:   78 (1024 samples), Train Loss:   4514720.00
+Epoch: 38/12000, Batch:  156 (1024 samples), Train Loss:   4356918.50
+Epoch: 38/12000, Batch:  234 (1024 samples), Train Loss:   5047226.50
+Epoch: 38/12000, Batch:  312 (1024 samples), Train Loss:   4564369.50
+Epoch: 38/12000, Batch:  390 (1024 samples), Train Loss:   4803204.50
+Epoch: 38/12000, Time elapsed/remaining/total: 2.45/771.87/774.32 min, Train Loss:   4656073.94, Val MRE: 38.60%
+Epoch: 39/12000, Batch:   78 (1024 samples), Train Loss:   4483102.00
+Epoch: 39/12000, Batch:  156 (1024 samples), Train Loss:   4786129.00
+Epoch: 39/12000, Batch:  234 (1024 samples), Train Loss:   4541784.00
+Epoch: 39/12000, Batch:  312 (1024 samples), Train Loss:   4831233.00
+Epoch: 39/12000, Batch:  390 (1024 samples), Train Loss:   4161284.50
+Epoch: 39/12000, Time elapsed/remaining/total: 2.52/771.36/773.88 min, Train Loss:   4667112.14, Val MRE: 38.93%
+Epoch: 40/12000, Batch:   78 (1024 samples), Train Loss:   4703063.00
+Epoch: 40/12000, Batch:  156 (1024 samples), Train Loss:   4319987.00
+Epoch: 40/12000, Batch:  234 (1024 samples), Train Loss:   4668564.00
+Epoch: 40/12000, Batch:  312 (1024 samples), Train Loss:   4102848.00
+Epoch: 40/12000, Batch:  390 (1024 samples), Train Loss:   5087257.50
+Epoch: 40/12000, Time elapsed/remaining/total: 2.58/771.02/773.60 min, Train Loss:   4665609.90, Val MRE: 39.24%
+Epoch: 41/12000, Batch:   78 (1024 samples), Train Loss:   4776116.00
+Epoch: 41/12000, Batch:  156 (1024 samples), Train Loss:   4875526.00
+Epoch: 41/12000, Batch:  234 (1024 samples), Train Loss:   4499982.00
+Epoch: 41/12000, Batch:  312 (1024 samples), Train Loss:   4481985.00
+Epoch: 41/12000, Batch:  390 (1024 samples), Train Loss:   4124006.50
+Epoch: 41/12000, Time elapsed/remaining/total: 2.64/769.92/772.56 min, Train Loss:   4666093.24, Val MRE: 39.38%
+Epoch: 42/12000, Batch:   78 (1024 samples), Train Loss:   4967781.50
+Epoch: 42/12000, Batch:  156 (1024 samples), Train Loss:   4611909.50
+Epoch: 42/12000, Batch:  234 (1024 samples), Train Loss:   3666808.00
+Epoch: 42/12000, Batch:  312 (1024 samples), Train Loss:   4805117.00
+Epoch: 42/12000, Batch:  390 (1024 samples), Train Loss:   4573924.00
+Epoch: 42/12000, Time elapsed/remaining/total: 2.70/769.65/772.35 min, Train Loss:   4642525.51, Val MRE: 39.43%
+Epoch: 43/12000, Batch:   78 (1024 samples), Train Loss:   5321301.50
+Epoch: 43/12000, Batch:  156 (1024 samples), Train Loss:   4160554.75
+Epoch: 43/12000, Batch:  234 (1024 samples), Train Loss:   5332081.00
+Epoch: 43/12000, Batch:  312 (1024 samples), Train Loss:   4909219.00
+Epoch: 43/12000, Batch:  390 (1024 samples), Train Loss:   5045789.50
+Epoch: 43/12000, Time elapsed/remaining/total: 2.77/769.41/772.17 min, Train Loss:   4632808.71, Val MRE: 39.60%
+Epoch: 44/12000, Batch:   78 (1024 samples), Train Loss:   4426056.50
+Epoch: 44/12000, Batch:  156 (1024 samples), Train Loss:   4551867.50
+Epoch: 44/12000, Batch:  234 (1024 samples), Train Loss:   4784480.50
+Epoch: 44/12000, Batch:  312 (1024 samples), Train Loss:   4729524.00
+Epoch: 44/12000, Batch:  390 (1024 samples), Train Loss:   5178951.00
+Epoch: 44/12000, Time elapsed/remaining/total: 2.83/769.15/771.98 min, Train Loss:   4631873.29, Val MRE: 39.74%
+Epoch: 45/12000, Batch:   78 (1024 samples), Train Loss:   4720336.00
+Epoch: 45/12000, Batch:  156 (1024 samples), Train Loss:   4664527.00
+Epoch: 45/12000, Batch:  234 (1024 samples), Train Loss:   4511845.00
+Epoch: 45/12000, Batch:  312 (1024 samples), Train Loss:   4107632.00
+Epoch: 45/12000, Batch:  390 (1024 samples), Train Loss:   4055500.75
+Epoch: 45/12000, Time elapsed/remaining/total: 2.89/769.08/771.97 min, Train Loss:   4633931.24, Val MRE: 39.98%
+Epoch: 46/12000, Batch:   78 (1024 samples), Train Loss:   4944782.50
+Epoch: 46/12000, Batch:  156 (1024 samples), Train Loss:   4173599.25
+Epoch: 46/12000, Batch:  234 (1024 samples), Train Loss:   4607900.00
+Epoch: 46/12000, Batch:  312 (1024 samples), Train Loss:   4688734.00
+Epoch: 46/12000, Batch:  390 (1024 samples), Train Loss:   4603117.00
+Epoch: 46/12000, Time elapsed/remaining/total: 2.96/768.74/771.70 min, Train Loss:   4624283.27, Val MRE: 40.07%
+Epoch: 47/12000, Batch:   78 (1024 samples), Train Loss:   4480283.00
+Epoch: 47/12000, Batch:  156 (1024 samples), Train Loss:   5384865.00
+Epoch: 47/12000, Batch:  234 (1024 samples), Train Loss:   4874685.00
+Epoch: 47/12000, Batch:  312 (1024 samples), Train Loss:   4771262.00
+Epoch: 47/12000, Batch:  390 (1024 samples), Train Loss:   4743153.00
+Epoch: 47/12000, Time elapsed/remaining/total: 3.02/767.95/770.97 min, Train Loss:   4643958.28, Val MRE: 40.05%
+Epoch: 48/12000, Batch:   78 (1024 samples), Train Loss:   4464300.00
+Epoch: 48/12000, Batch:  156 (1024 samples), Train Loss:   4955466.00
+Epoch: 48/12000, Batch:  234 (1024 samples), Train Loss:   3927312.50
+Epoch: 48/12000, Batch:  312 (1024 samples), Train Loss:   4713732.50
+Epoch: 48/12000, Batch:  390 (1024 samples), Train Loss:   3989054.50
+Epoch: 48/12000, Time elapsed/remaining/total: 3.08/767.48/770.56 min, Train Loss:   4614080.21, Val MRE: 40.23%
+Epoch: 49/12000, Batch:   78 (1024 samples), Train Loss:   5221318.00
+Epoch: 49/12000, Batch:  156 (1024 samples), Train Loss:   5153697.00
+Epoch: 49/12000, Batch:  234 (1024 samples), Train Loss:   4002660.25
+Epoch: 49/12000, Batch:  312 (1024 samples), Train Loss:   4732020.00
+Epoch: 49/12000, Batch:  390 (1024 samples), Train Loss:   4317610.00
+Epoch: 49/12000, Time elapsed/remaining/total: 3.15/767.15/770.30 min, Train Loss:   4613899.36, Val MRE: 40.34%
+Epoch: 50/12000, Batch:   78 (1024 samples), Train Loss:   4521767.00
+Epoch: 50/12000, Batch:  156 (1024 samples), Train Loss:   4681715.00
+Epoch: 50/12000, Batch:  234 (1024 samples), Train Loss:   4562059.00
+Epoch: 50/12000, Batch:  312 (1024 samples), Train Loss:   4528620.50
+Epoch: 50/12000, Batch:  390 (1024 samples), Train Loss:   4645813.00
+Epoch: 50/12000, Time elapsed/remaining/total: 3.21/766.75/769.96 min, Train Loss:   4623824.29, Val MRE: 40.36%
+Epoch: 51/12000, Batch:   78 (1024 samples), Train Loss:   4415166.00
+Epoch: 51/12000, Batch:  156 (1024 samples), Train Loss:   4389501.00
+Epoch: 51/12000, Batch:  234 (1024 samples), Train Loss:   4779660.00
+Epoch: 51/12000, Batch:  312 (1024 samples), Train Loss:   5591613.50
+Epoch: 51/12000, Batch:  390 (1024 samples), Train Loss:   4639669.00
+Epoch: 51/12000, Time elapsed/remaining/total: 3.27/765.93/769.20 min, Train Loss:   4603630.79, Val MRE: 40.42%
+Epoch: 52/12000, Batch:   78 (1024 samples), Train Loss:   4347567.00
+Epoch: 52/12000, Batch:  156 (1024 samples), Train Loss:   4312796.00
+Epoch: 52/12000, Batch:  234 (1024 samples), Train Loss:   4530195.00
+Epoch: 52/12000, Batch:  312 (1024 samples), Train Loss:   4769121.00
+Epoch: 52/12000, Batch:  390 (1024 samples), Train Loss:   4710565.00
+Epoch: 52/12000, Time elapsed/remaining/total: 3.33/765.72/769.05 min, Train Loss:   4605884.13, Val MRE: 40.51%
+Epoch: 53/12000, Batch:   78 (1024 samples), Train Loss:   4273573.00
+Epoch: 53/12000, Batch:  156 (1024 samples), Train Loss:   5250362.00
+Epoch: 53/12000, Batch:  234 (1024 samples), Train Loss:   4942699.00
+Epoch: 53/12000, Batch:  312 (1024 samples), Train Loss:   4514047.00
+Epoch: 53/12000, Batch:  390 (1024 samples), Train Loss:   4611836.50
+Epoch: 53/12000, Time elapsed/remaining/total: 3.40/766.06/769.46 min, Train Loss:   4622228.36, Val MRE: 40.42%
+Epoch: 54/12000, Batch:   78 (1024 samples), Train Loss:   5027564.00
+Epoch: 54/12000, Batch:  156 (1024 samples), Train Loss:   4289564.50
+Epoch: 54/12000, Batch:  234 (1024 samples), Train Loss:   4263023.00
+Epoch: 54/12000, Batch:  312 (1024 samples), Train Loss:   4749861.00
+Epoch: 54/12000, Batch:  390 (1024 samples), Train Loss:   4816712.50
+Epoch: 54/12000, Time elapsed/remaining/total: 3.46/765.86/769.32 min, Train Loss:   4584602.68, Val MRE: 40.63%
+Epoch: 55/12000, Batch:   78 (1024 samples), Train Loss:   3752121.00
+Epoch: 55/12000, Batch:  156 (1024 samples), Train Loss:   5175922.00
+Epoch: 55/12000, Batch:  234 (1024 samples), Train Loss:   4601278.50
+Epoch: 55/12000, Batch:  312 (1024 samples), Train Loss:   4934392.00
+Epoch: 55/12000, Batch:  390 (1024 samples), Train Loss:   4453617.50
+Epoch: 55/12000, Time elapsed/remaining/total: 3.53/765.74/769.27 min, Train Loss:   4595423.92, Val MRE: 40.66%
+Epoch: 56/12000, Batch:   78 (1024 samples), Train Loss:   4444478.00
+Epoch: 56/12000, Batch:  156 (1024 samples), Train Loss:   3889678.00
+Epoch: 56/12000, Batch:  234 (1024 samples), Train Loss:   4259004.00
+Epoch: 56/12000, Batch:  312 (1024 samples), Train Loss:   5018585.00
+Epoch: 56/12000, Batch:  390 (1024 samples), Train Loss:   4636895.00
+Epoch: 56/12000, Time elapsed/remaining/total: 3.59/765.45/769.04 min, Train Loss:   4576816.31, Val MRE: 40.61%
+Epoch: 57/12000, Batch:   78 (1024 samples), Train Loss:   4749184.00
+Epoch: 57/12000, Batch:  156 (1024 samples), Train Loss:   4536431.00
+Epoch: 57/12000, Batch:  234 (1024 samples), Train Loss:   4789086.00
+Epoch: 57/12000, Batch:  312 (1024 samples), Train Loss:   4307518.00
+Epoch: 57/12000, Batch:  390 (1024 samples), Train Loss:   4375820.00
+Epoch: 57/12000, Time elapsed/remaining/total: 3.65/764.98/768.63 min, Train Loss:   4586334.38, Val MRE: 40.73%
+Epoch: 58/12000, Batch:   78 (1024 samples), Train Loss:   4089434.00
+Epoch: 58/12000, Batch:  156 (1024 samples), Train Loss:   4463298.00
+Epoch: 58/12000, Batch:  234 (1024 samples), Train Loss:   4391178.00
+Epoch: 58/12000, Batch:  312 (1024 samples), Train Loss:   4839847.00
+Epoch: 58/12000, Batch:  390 (1024 samples), Train Loss:   4505377.00
+Epoch: 58/12000, Time elapsed/remaining/total: 3.72/765.07/768.79 min, Train Loss:   4569522.40, Val MRE: 40.76%
+Epoch: 59/12000, Batch:   78 (1024 samples), Train Loss:   5109598.50
+Epoch: 59/12000, Batch:  156 (1024 samples), Train Loss:   4681805.00
+Epoch: 59/12000, Batch:  234 (1024 samples), Train Loss:   4835235.50
+Epoch: 59/12000, Batch:  312 (1024 samples), Train Loss:   4826920.00
+Epoch: 59/12000, Batch:  390 (1024 samples), Train Loss:   4485517.00
+Epoch: 59/12000, Time elapsed/remaining/total: 3.78/764.87/768.65 min, Train Loss:   4578814.91, Val MRE: 40.83%
+Epoch: 60/12000, Batch:   78 (1024 samples), Train Loss:   4719586.00
+Epoch: 60/12000, Batch:  156 (1024 samples), Train Loss:   4803560.00
+Epoch: 60/12000, Batch:  234 (1024 samples), Train Loss:   4772327.00
+Epoch: 60/12000, Batch:  312 (1024 samples), Train Loss:   4426284.00
+Epoch: 60/12000, Batch:  390 (1024 samples), Train Loss:   4473445.50
+Epoch: 60/12000, Time elapsed/remaining/total: 3.84/764.35/768.19 min, Train Loss:   4558737.92, Val MRE: 40.80%
+Epoch: 61/12000, Batch:   78 (1024 samples), Train Loss:   4436314.00
+Epoch: 61/12000, Batch:  156 (1024 samples), Train Loss:   4976581.00
+Epoch: 61/12000, Batch:  234 (1024 samples), Train Loss:   4273411.50
+Epoch: 61/12000, Batch:  312 (1024 samples), Train Loss:   4542583.50
+Epoch: 61/12000, Batch:  390 (1024 samples), Train Loss:   4544420.00
+Epoch: 61/12000, Time elapsed/remaining/total: 3.91/764.52/768.42 min, Train Loss:   4561241.67, Val MRE: 40.94%
+Epoch: 62/12000, Batch:   78 (1024 samples), Train Loss:   4727145.00
+Epoch: 62/12000, Batch:  156 (1024 samples), Train Loss:   4361227.00
+Epoch: 62/12000, Batch:  234 (1024 samples), Train Loss:   4077650.50
+Epoch: 62/12000, Batch:  312 (1024 samples), Train Loss:   4597139.00
+Epoch: 62/12000, Batch:  390 (1024 samples), Train Loss:   4831399.00
+Epoch: 62/12000, Time elapsed/remaining/total: 3.97/764.72/768.69 min, Train Loss:   4584370.85, Val MRE: 40.93%
+Epoch: 63/12000, Batch:   78 (1024 samples), Train Loss:   4559228.00
+Epoch: 63/12000, Batch:  156 (1024 samples), Train Loss:   5020255.50
+Epoch: 63/12000, Batch:  234 (1024 samples), Train Loss:   4374734.00
+Epoch: 63/12000, Batch:  312 (1024 samples), Train Loss:   5032965.00
+Epoch: 63/12000, Batch:  390 (1024 samples), Train Loss:   4691681.00
+Epoch: 63/12000, Time elapsed/remaining/total: 4.04/764.58/768.61 min, Train Loss:   4579290.40, Val MRE: 41.20%
+Epoch: 64/12000, Batch:   78 (1024 samples), Train Loss:   4867965.50
+Epoch: 64/12000, Batch:  156 (1024 samples), Train Loss:   4400711.50
+Epoch: 64/12000, Batch:  234 (1024 samples), Train Loss:   4038289.25
+Epoch: 64/12000, Batch:  312 (1024 samples), Train Loss:   4255234.00
+Epoch: 64/12000, Batch:  390 (1024 samples), Train Loss:   4751378.00
+Epoch: 64/12000, Time elapsed/remaining/total: 4.10/764.11/768.21 min, Train Loss:   4565221.78, Val MRE: 40.88%
+Epoch: 65/12000, Batch:   78 (1024 samples), Train Loss:   4884421.00
+Epoch: 65/12000, Batch:  156 (1024 samples), Train Loss:   4492294.50
+Epoch: 65/12000, Batch:  234 (1024 samples), Train Loss:   5035594.00
+Epoch: 65/12000, Batch:  312 (1024 samples), Train Loss:   4441106.50
+Epoch: 65/12000, Batch:  390 (1024 samples), Train Loss:   4267221.50
+Epoch: 65/12000, Time elapsed/remaining/total: 4.16/763.89/768.05 min, Train Loss:   4585881.71, Val MRE: 41.09%
+Epoch: 66/12000, Batch:   78 (1024 samples), Train Loss:   4397991.00
+Epoch: 66/12000, Batch:  156 (1024 samples), Train Loss:   4086881.50
+Epoch: 66/12000, Batch:  234 (1024 samples), Train Loss:   4724272.50
+Epoch: 66/12000, Batch:  312 (1024 samples), Train Loss:   4595529.50
+Epoch: 66/12000, Batch:  390 (1024 samples), Train Loss:   4338217.00
+Epoch: 66/12000, Time elapsed/remaining/total: 4.22/763.68/767.91 min, Train Loss:   4547882.23, Val MRE: 41.08%
+Epoch: 67/12000, Batch:   78 (1024 samples), Train Loss:   4727317.00
+Epoch: 67/12000, Batch:  156 (1024 samples), Train Loss:   4858837.50
+Epoch: 67/12000, Batch:  234 (1024 samples), Train Loss:   4760740.00
+Epoch: 67/12000, Batch:  312 (1024 samples), Train Loss:   4322695.50
+Epoch: 67/12000, Batch:  390 (1024 samples), Train Loss:   3800346.00
+Epoch: 67/12000, Time elapsed/remaining/total: 4.29/763.86/768.15 min, Train Loss:   4546063.83, Val MRE: 41.04%
+Epoch: 68/12000, Batch:   78 (1024 samples), Train Loss:   4348030.50
+Epoch: 68/12000, Batch:  156 (1024 samples), Train Loss:   4403258.00
+Epoch: 68/12000, Batch:  234 (1024 samples), Train Loss:   4623696.00
+Epoch: 68/12000, Batch:  312 (1024 samples), Train Loss:   4289340.00
+Epoch: 68/12000, Batch:  390 (1024 samples), Train Loss:   4722441.50
+Epoch: 68/12000, Time elapsed/remaining/total: 4.35/763.64/768.00 min, Train Loss:   4562205.86, Val MRE: 41.23%
+Epoch: 69/12000, Batch:   78 (1024 samples), Train Loss:   3843806.00
+Epoch: 69/12000, Batch:  156 (1024 samples), Train Loss:   4751697.50
+Epoch: 69/12000, Batch:  234 (1024 samples), Train Loss:   5086645.00
+Epoch: 69/12000, Batch:  312 (1024 samples), Train Loss:   4668468.00
+Epoch: 69/12000, Batch:  390 (1024 samples), Train Loss:   5357954.00
+Epoch: 69/12000, Time elapsed/remaining/total: 4.42/763.80/768.21 min, Train Loss:   4535485.60, Val MRE: 41.21%
+Epoch: 70/12000, Batch:   78 (1024 samples), Train Loss:   4341216.00
+Epoch: 70/12000, Batch:  156 (1024 samples), Train Loss:   4291954.50
+Epoch: 70/12000, Batch:  234 (1024 samples), Train Loss:   4504363.50
+Epoch: 70/12000, Batch:  312 (1024 samples), Train Loss:   4263888.00
+Epoch: 70/12000, Batch:  390 (1024 samples), Train Loss:   4191992.25
+Epoch: 70/12000, Time elapsed/remaining/total: 4.48/763.38/767.86 min, Train Loss:   4559977.95, Val MRE: 41.34%
+Epoch: 71/12000, Batch:   78 (1024 samples), Train Loss:   4233017.00
+Epoch: 71/12000, Batch:  156 (1024 samples), Train Loss:   4661322.00
+Epoch: 71/12000, Batch:  234 (1024 samples), Train Loss:   4883625.50
+Epoch: 71/12000, Batch:  312 (1024 samples), Train Loss:   4399915.00
+Epoch: 71/12000, Batch:  390 (1024 samples), Train Loss:   5171067.00
+Epoch: 71/12000, Time elapsed/remaining/total: 4.54/763.04/767.58 min, Train Loss:   4537256.95, Val MRE: 41.34%
+Epoch: 72/12000, Batch:   78 (1024 samples), Train Loss:   4097043.25
+Epoch: 72/12000, Batch:  156 (1024 samples), Train Loss:   4620139.50
+Epoch: 72/12000, Batch:  234 (1024 samples), Train Loss:   4416845.00
+Epoch: 72/12000, Batch:  312 (1024 samples), Train Loss:   4396657.00
+Epoch: 72/12000, Batch:  390 (1024 samples), Train Loss:   4177590.25
+Epoch: 72/12000, Time elapsed/remaining/total: 4.61/763.06/767.67 min, Train Loss:   4521085.20, Val MRE: 41.34%
+Epoch: 73/12000, Batch:   78 (1024 samples), Train Loss:   4430410.00
+Epoch: 73/12000, Batch:  156 (1024 samples), Train Loss:   4584807.00
+Epoch: 73/12000, Batch:  234 (1024 samples), Train Loss:   4342314.50
+Epoch: 73/12000, Batch:  312 (1024 samples), Train Loss:   4421718.00
+Epoch: 73/12000, Batch:  390 (1024 samples), Train Loss:   4626768.00
+Epoch: 73/12000, Time elapsed/remaining/total: 4.67/762.56/767.23 min, Train Loss:   4516657.43, Val MRE: 41.28%
+Epoch: 74/12000, Batch:   78 (1024 samples), Train Loss:   4461400.00
+Epoch: 74/12000, Batch:  156 (1024 samples), Train Loss:   4372112.00
+Epoch: 74/12000, Batch:  234 (1024 samples), Train Loss:   4571809.00
+Epoch: 74/12000, Batch:  312 (1024 samples), Train Loss:   4389678.00
+Epoch: 74/12000, Batch:  390 (1024 samples), Train Loss:   4708629.00
+Epoch: 74/12000, Time elapsed/remaining/total: 4.73/762.64/767.37 min, Train Loss:   4528779.92, Val MRE: 41.21%
+Epoch: 75/12000, Batch:   78 (1024 samples), Train Loss:   4510745.00
+Epoch: 75/12000, Batch:  156 (1024 samples), Train Loss:   5039143.00
+Epoch: 75/12000, Batch:  234 (1024 samples), Train Loss:   4029313.00
+Epoch: 75/12000, Batch:  312 (1024 samples), Train Loss:   4309425.00
+Epoch: 75/12000, Batch:  390 (1024 samples), Train Loss:   4439805.50
+Epoch: 75/12000, Time elapsed/remaining/total: 4.79/762.27/767.07 min, Train Loss:   4518499.18, Val MRE: 41.24%
+Epoch: 76/12000, Batch:   78 (1024 samples), Train Loss:   4003103.50
+Epoch: 76/12000, Batch:  156 (1024 samples), Train Loss:   4320456.00
+Epoch: 76/12000, Batch:  234 (1024 samples), Train Loss:   4455889.50
+Epoch: 76/12000, Batch:  312 (1024 samples), Train Loss:   4241725.50
+Epoch: 76/12000, Batch:  390 (1024 samples), Train Loss:   4663758.00
+Epoch: 76/12000, Time elapsed/remaining/total: 4.86/762.02/766.88 min, Train Loss:   4520687.16, Val MRE: 41.36%
+Epoch: 77/12000, Batch:   78 (1024 samples), Train Loss:   4883573.00
+Epoch: 77/12000, Batch:  156 (1024 samples), Train Loss:   4433759.00
+Epoch: 77/12000, Batch:  234 (1024 samples), Train Loss:   4800221.50
+Epoch: 77/12000, Batch:  312 (1024 samples), Train Loss:   4322908.00
+Epoch: 77/12000, Batch:  390 (1024 samples), Train Loss:   4189331.25
+Epoch: 77/12000, Time elapsed/remaining/total: 4.92/762.18/767.10 min, Train Loss:   4515769.60, Val MRE: 41.31%
+Epoch: 78/12000, Batch:   78 (1024 samples), Train Loss:   4726968.50
+Epoch: 78/12000, Batch:  156 (1024 samples), Train Loss:   4598820.00
+Epoch: 78/12000, Batch:  234 (1024 samples), Train Loss:   4995268.00
+Epoch: 78/12000, Batch:  312 (1024 samples), Train Loss:   4583095.00
+Epoch: 78/12000, Batch:  390 (1024 samples), Train Loss:   4430675.00
+Epoch: 78/12000, Time elapsed/remaining/total: 4.99/761.99/766.97 min, Train Loss:   4529636.12, Val MRE: 41.43%
+Epoch: 79/12000, Batch:   78 (1024 samples), Train Loss:   4541111.00
+Epoch: 79/12000, Batch:  156 (1024 samples), Train Loss:   4226218.00
+Epoch: 79/12000, Batch:  234 (1024 samples), Train Loss:   4043092.00
+Epoch: 79/12000, Batch:  312 (1024 samples), Train Loss:   4151967.00
+Epoch: 79/12000, Batch:  390 (1024 samples), Train Loss:   4541237.00
+Epoch: 79/12000, Time elapsed/remaining/total: 5.05/761.97/767.02 min, Train Loss:   4484928.69, Val MRE: 41.44%
+Time limit of 5.0 minutes reached. Stopping training.
+Optimization Finished!
+Precomputation time: 5.05 minutes
+[92mSaving model: ../results/v39-real_workload_perturb_500k/saved_models/DistanceNN_sub_W_Jinan_real_workload_perturb_500k.pt[0m
+  - Model size: 2.20 MB
+[92mSaving plot: ../results/v39-real_workload_perturb_500k/plots/loss_history_DistanceNN_sub_W_Jinan_real_workload_perturb_500k.png[0m
+Evaluation on train Finished!
+Evaluation time: 0.02 minutes
+Mean Absolute Error: 897.77
+Mean Relative Error: 39.02%
+Query time per sample: 0.799 microseconds
+Adjusted query time per sample: 3.205 microseconds
+Bucket 1: 1 - 5830, Local MRE: 49.60%, Fraction of data samples in this bucket: 67.59%
+Bucket 2: 5830 - 11660, Local MRE: 15.99%, Fraction of data samples in this bucket: 30.46%
+Bucket 3: 11660 - 17489, Local MRE: 30.95%, Fraction of data samples in this bucket: 1.87%
+Bucket 4: 17489 - 23319, Local MRE: 57.04%, Fraction of data samples in this bucket: 0.08%
+Bucket 5: 23319 - 29148, Local MRE: 74.17%, Fraction of data samples in this bucket: 0.01%
+Total Buckets: 5, Global MRE: 39.02%, Global Count: 400000
+[92mSaving plot: ../results/v39-real_workload_perturb_500k/plots/mre_boxplot_DistanceNN_sub_W_Jinan_real_workload_perturb_500k_Train.png[0m
+[92mSaving plot: ../results/v39-real_workload_perturb_500k/plots/predictions_targets_DistanceNN_sub_W_Jinan_real_workload_perturb_500k_Train.png[0m
+Evaluation on test Finished!
+Evaluation time: 0.14 minutes
+Mean Absolute Error: 897.25
+Mean Relative Error: 41.44%
+Query time per sample: 0.020 microseconds
+Adjusted query time per sample: 8.457 microseconds
+Bucket 1: 1 - 5397, Local MRE: 56.55%, Fraction of data samples in this bucket: 62.35%
+Bucket 2: 5397 - 10793, Local MRE: 15.30%, Fraction of data samples in this bucket: 34.48%
+Bucket 3: 10793 - 16190, Local MRE: 27.22%, Fraction of data samples in this bucket: 3.02%
+Bucket 4: 16190 - 21586, Local MRE: 50.93%, Fraction of data samples in this bucket: 0.13%
+Bucket 5: 21586 - 26982, Local MRE: 68.16%, Fraction of data samples in this bucket: 0.01%
+Total Buckets: 5, Global MRE: 41.44%, Global Count: 1000000
+[92mSaving plot: ../results/v39-real_workload_perturb_500k/plots/mre_boxplot_DistanceNN_sub_W_Jinan_real_workload_perturb_500k_Test.png[0m
+[92mSaving plot: ../results/v39-real_workload_perturb_500k/plots/predictions_targets_DistanceNN_sub_W_Jinan_real_workload_perturb_500k_Test.png[0m
