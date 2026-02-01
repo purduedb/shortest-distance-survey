@@ -32,7 +32,7 @@ echo "----------------------------------------"
 # EXPT_NAME="v39-real_workload_perturb_500k"      ## eval_runs=0, device=cuda, time_limit=5 mins, validate! (default lr = 0.01)
 # EXPT_NAME="v40-real_workload_perturb_500k"      ## same as v39 but default learning rate as 0.003
 # EXPT_NAME="v41-real_workload_perturb_500k"      ## same as v39 but default learning rate as 0.001
-EXPT_NAME="v42-real_workload_perturb_500k"      ## same as v39 but default learning rate as 0.03
+EXPT_NAME="v61-gpu-v1"                          ## same as v39 but eval_runs=10
 QUERY_DIR="real_workload_perturb_500k"
 LOG_DIR="../results/$EXPT_NAME"
 DATASETS=(
@@ -47,14 +47,14 @@ DATASETS=(
 )
 MODELS=(
     # ## LpNorm
-    # "train.py --model_class lpnorm --model_name Manhattan --p_norm 1"
+    "train.py --model_class lpnorm --model_name Manhattan --p_norm 1"
     # # "train.py --model_class lpnorm --model_name Euclidean --p_norm 2"
 
     # ## Landmark
     # "train.py --model_class landmark --model_name Landmark_random --landmark_selection random"
-    # "train.py --model_class landmark --model_name Landmark_random_subset --landmark_selection random --select_landmarks_from_train"
+    "train.py --model_class landmark --model_name Landmark_random_subset --landmark_selection random --select_landmarks_from_train"
     # "train.py --model_class landmark --model_name Landmark_kmeans --landmark_selection kmeans"
-    # "train.py --model_class landmark --model_name Landmark_kmeans_subset --landmark_selection kmeans --select_landmarks_from_train"
+    "train.py --model_class landmark --model_name Landmark_kmeans_subset --landmark_selection kmeans --select_landmarks_from_train"
     # # "train.py --model_class landmark --model_name Landmark_betweenness_high --landmark_selection betweenness_high"
     # # "train.py --model_class landmark --model_name Landmark_degree --landmark_selection degree"
     # # "train.py --model_class landmark --model_name Landmark_pagerank --landmark_selection pagerank"
@@ -65,46 +65,46 @@ MODELS=(
     # # "train.py --model_class landmark --model_name Landmark_katz --landmark_selection katz"
     # # "train.py --model_class landmark --model_name Landmark_harmonic --landmark_selection harmonic"  ## Takes too long
 
-    # # GeoDNN
-    # "train.py --model_class geodnn --model_name GeoDNN"
+    # GeoDNN
+    "train.py --model_class geodnn --model_name GeoDNN"
 
-    # # Vdist2vec
-    # "train.py --model_class vdist2vec --model_name Vdist2vec"
+    # Vdist2vec
+    "train.py --model_class vdist2vec --model_name Vdist2vec"
 
-    # # Ndist2vec
-    # "train.py --model_class ndist2vec --model_name Ndist2vec"
+    # Ndist2vec
+    "train.py --model_class ndist2vec --model_name Ndist2vec"
 
-    # # GNN
-    # "train.py --model_class rgnndist2vec --model_name SAGE --gnn_layer sage --loss_function smoothl1"
-    # "train.py --model_class rgnndist2vec --model_name GAT --gnn_layer gat --loss_function smoothl1 --disable_edge_weight"
-    # "train.py --model_class rgnndist2vec --model_name GCN --gnn_layer gcn --loss_function smoothl1 --disable_edge_weight"
+    # GNN
+    "train.py --model_class rgnndist2vec --model_name SAGE --gnn_layer sage --loss_function smoothl1"
+    "train.py --model_class rgnndist2vec --model_name GAT --gnn_layer gat --loss_function smoothl1 --disable_edge_weight"
+    "train.py --model_class rgnndist2vec --model_name GCN --gnn_layer gcn --loss_function smoothl1 --disable_edge_weight"
 
     # # EmbeddingNN
     # "train.py --model_class embeddingnn --model_name EmbeddingNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat"
-    # "train.py --model_class embeddingnn --model_name EmbeddingNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean"
+    "train.py --model_class embeddingnn --model_name EmbeddingNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean"
     # "train.py --model_class embeddingnn --model_name EmbeddingNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract"
 
     # # DistanceNN
     # "train.py --model_class distancenn --model_name DistanceNN --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method concat"
     # "train.py --model_class distancenn --model_name DistanceNN_mean --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method mean"
-    # "train.py --model_class distancenn --model_name DistanceNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract"
+    "train.py --model_class distancenn --model_name DistanceNN_sub --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings --aggregation_method subtract"
 
     # #######
     # # ANEDA
-    # "train.py --model_class aneda --model_name ANEDA --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings"
+    "train.py --model_class aneda --model_name ANEDA --embedding_filename node2vec_dim64_epochs1_unweighted.embeddings"
     # "train.py --model_class aneda --model_name ANEDA_random"
 
-    # # Path2vec
-    # "train.py --model_class path2vec --model_name Path2vec"
+    # Path2vec
+    "train.py --model_class path2vec --model_name Path2vec"
 
-    # # RNE
-    # "train.py --model_class rne --model_name RNE"
+    # RNE
+    "train.py --model_class rne --model_name RNE"
 
-    # # CatBoost
-    # "train.py --model_class catboost --model_name CatBoost --embedding_filename landmark_dim61.embeddings"
+    # CatBoost
+    "train.py --model_class catboost --model_name CatBoost --embedding_filename landmark_dim61.embeddings"
 
-    # # CatBoostNN
-    # "train.py --model_class catboostnn --model_name CatBoostNN --embedding_filename landmark_dim61.embeddings"
+    # CatBoostNN
+    "train.py --model_class catboostnn --model_name CatBoostNN --embedding_filename landmark_dim61.embeddings"
 )
 # Define specific learning rates for model-dataset combinations
 declare -A MODEL_DATASET_LR
@@ -125,12 +125,12 @@ if [ "$SLURM" = true ]; then
     # Construct sbatch command
     SBATCH_COMMAND="sbatch \
         --account csml \
-        --partition v100 \
+        --partition a30 \
         -N 1 \
         -n 16 \
         --mem 32G \
         --gres gpu:1 \
-        --time 03:00:00 \
+        --time 16:00:00 \
         --job-name ${EXPT_NAME} \
         --output $MASTER_LOGFILE \
         $0"
@@ -156,7 +156,7 @@ module load conda
 conda activate openne1
 
 ## Run your job ##
-cd ~/scratch/shortest-distance/src
+cd ~/scratch/shortest-distance-survey/src
 
 ## MAIN ##
 SECONDS=0  # Timer for total duration
@@ -177,7 +177,7 @@ for dataset in "${DATASETS[@]}"; do
         elif [ -n "${MODEL_LR["${model_name}"]}" ]; then
             custom_lr="${MODEL_LR["${model_name}"]}"
         else
-            custom_lr="0.03"  # default learning rate
+            custom_lr="0.01"  # default learning rate
         fi
 
         # Python command
@@ -185,7 +185,7 @@ for dataset in "${DATASETS[@]}"; do
             --data_dir ${dataset} \
             --query_dir ${QUERY_DIR} \
             --log_dir $LOG_DIR \
-            --eval_runs 0 \
+            --eval_runs 10 \
             --seed 1234 \
             --device cuda \
             --time_limit 5 \

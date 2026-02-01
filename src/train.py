@@ -68,11 +68,11 @@ parser.add_argument('--data_dir', type=str, default='W_Jinan',
 parser.add_argument('--query_dir', type=str, default='real_workload_perturb_500k',
                     help='Path to directory containing `*.queries` files')
 # Training configuration
-parser.add_argument('--batch_size_train', type=int, default=2**10,  # TODO: 4096
+parser.add_argument('--batch_size_train', type=int, default=2**10,
                     help='Batch size for training')
 parser.add_argument('--batch_size_test', type=int, default=2**20,
                     help='Batch size for testing or evaluation')
-parser.add_argument('--learning_rate', type=float, default=0.01,  # TODO: 0.001*5
+parser.add_argument('--learning_rate', type=float, default=0.01,
                     help='Learning rate for optimizer')
 parser.add_argument('--optimizer_type', type=str, default='adam',
                     help='Optimizer to use for training (e.g., "adam", "sgd", etc.)')
