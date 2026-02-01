@@ -9,5 +9,5 @@
     │   └── <file>.log
     ├── expt_2/
     ├── expt_3/
-    └── ...                     # and so on for other experiments
+    └── ...                         # and so on for other experiments
 ```

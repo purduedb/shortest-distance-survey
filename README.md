@@ -55,7 +55,7 @@ conda env create -f environment.yml
     python train.py --model_class rne --data_dir W_Jinan --query_dir real_workload_perturb_500k
     ```
 
-    NOTE: Additional parameters, e.g., time_limit, learning_rate, seed, etc. may also be specified. Refer to argparse section in `train.py` for full list. Refer to `slurm-jobs/urban_expt.sh` for configuration discussed in the paper.
+    NOTE: Additional parameters, e.g., time_limit, learning_rate, seed, etc. may also be specified. Refer to argparse section in `train.py` for full list. Refer to `slurm-jobs/urban_expt.sh` for other model configurations.
 
 5. Optionally, train multiple models using SLURM scripts:
     ```bash
