@@ -32,7 +32,8 @@ echo "----------------------------------------"
 # EXPT_NAME="v39-real_workload_perturb_500k"      ## eval_runs=0, device=cuda, time_limit=5 mins, validate! (default lr = 0.01)
 # EXPT_NAME="v40-real_workload_perturb_500k"      ## same as v39 but default learning rate as 0.003
 # EXPT_NAME="v41-real_workload_perturb_500k"      ## same as v39 but default learning rate as 0.001
-EXPT_NAME="v61-gpu-v1"                          ## same as v39 but eval_runs=10
+# EXPT_NAME="v61-gpu-v1"                          ## same as v39 but eval_runs=10
+EXPT_NAME="v62-gpu-v1"                          ## same as v39 but eval_runs=10 and high precision matmul in torch
 QUERY_DIR="real_workload_perturb_500k"
 LOG_DIR="../results/$EXPT_NAME"
 DATASETS=(

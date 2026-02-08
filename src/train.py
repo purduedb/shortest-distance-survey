@@ -551,7 +551,8 @@ plot_learning_curves(train_history, n_batches=len(train_dataloader),
 # (Optional) Set the precision for matrix multiplication (lower precision implies higher query latency)
 # Choose from: 'highest', 'high', 'medium'
 # TODO: Need to check appropriate placement, before training or test or both or none
-# torch.set_float32_matmul_precision('high')
+torch.set_float32_matmul_precision('high')
+print(f"Set float32 matmul precision to: {torch.get_float32_matmul_precision()}")
 
 for label_i, dataloader_i in zip(["train", "test"], [train_dataloader, test_dataloader]):
     start_time = time.perf_counter()
