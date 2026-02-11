@@ -94,6 +94,10 @@ parser.add_argument('--device', type=str, default=None,
                     help='Device to use for training and evaluation (e.g., "cuda", "cpu", "mps")')
 parser.add_argument('--num_workers', type=int, default=None,
                     help='Number of worker processes for DataLoader (default: auto-detect)')
+parser.add_argument('--matmul_precision', type=str, default=None,
+                    choices=['highest', 'high', 'medium'],
+                    help='(Test only) Set torch.float32 matmul precision for evaluation '
+                    '(choices: highest, high, medium). If None, precision is unchanged.')
 # Logging configuration
 parser.add_argument('--log_dir', type=str, default='../results/default',
                     help='Directory to save logs and checkpoints')
@@ -111,7 +115,8 @@ parser.add_argument('--gnn_layer', type=str, default='gat',
 parser.add_argument('--disable_edge_weight', action='store_true', default=False,
                     help='Disable edge weight in the GNN model')
 parser.add_argument('--aggregation_method', type=str, default='concat',
-                    help='Aggregation method to use in the EmbeddingNN model (e.g., "hadamard", "subtract", "mean", "concat")')
+                    help='Aggregation method to use in the EmbeddingNN model '
+                    '(e.g., "hadamard", "subtract", "mean", "concat")')
 parser.add_argument('--embedding_filename', type=str, default=None,
                     help='Path to precomputed node embeddings file (optional)')
 parser.add_argument('--select_landmarks_from_train', action='store_true', default=False,
@@ -178,6 +183,7 @@ display_step = args.display_step
 seed = args.seed
 device = args.device
 num_workers = args.num_workers
+matmul_precision = args.matmul_precision
 # Logging configuration
 log_dir = args.log_dir
 os.makedirs(log_dir, exist_ok=True)
@@ -548,11 +554,11 @@ plot_learning_curves(train_history, n_batches=len(train_dataloader),
 # Evaluate the model
 ################
 
+print("Starting evaluation...")
 # (Optional) Set the precision for matrix multiplication (lower precision implies higher query latency)
-# Choose from: 'highest', 'high', 'medium'
-# TODO: Need to check appropriate placement, before training or test or both or none
-torch.set_float32_matmul_precision('medium')
-print(f"Set float32 matmul precision to: {torch.get_float32_matmul_precision()}")
+if matmul_precision is not None:
+    print(f"Setting float32 matmul precision to: {matmul_precision}")
+    torch.set_float32_matmul_precision(matmul_precision)
 
 for label_i, dataloader_i in zip(["train", "test"], [train_dataloader, test_dataloader]):
     start_time = time.perf_counter()
