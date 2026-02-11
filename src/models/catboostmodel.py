@@ -92,6 +92,10 @@ class CatBoostModel(BaseModel):
         return predictions
 
     def fit(self, dataloader=None, val_dataloader=None, epochs=1, learning_rate=0.1, device="cpu", **kwargs):
+        if epochs <= 0:
+            print("Warning: epochs should be > 0 for CatBoost training, setting it to 100 to avoid issues with training...")
+            epochs = 100
+
         # Initialize CatBoost regressor
         self.catboost_model = CatBoostRegressor(
             iterations=epochs,              ## Total number of trees
