@@ -47,6 +47,7 @@ from utils.torch_utils import (
     save_dataset,
     load_dataset,
     save_model,
+    load_model,
     save_dictionary,
 )
 
@@ -64,9 +65,9 @@ parser.add_argument('--model_name', type=str, default=None,
                     help='Model Identifier, Version or Name for different hypeparameters')
 # Data configuration
 parser.add_argument('--data_dir', type=str, default='W_Jinan',
-                    help='Path to directory containing `*.nodes` and `*.edges` files')
+                    help='Directory containing `*.nodes` and `*.edges` files')
 parser.add_argument('--query_dir', type=str, default='real_workload_perturb_500k',
-                    help='Path to directory containing `*.queries` files')
+                    help='Directory containing `*.queries` files')
 # Training configuration
 parser.add_argument('--batch_size_train', type=int, default=2**10,
                     help='Batch size for training')
@@ -98,6 +99,8 @@ parser.add_argument('--matmul_precision', type=str, default=None,
                     choices=['highest', 'high', 'medium'],
                     help='(Test only) Set torch.float32 matmul precision for evaluation '
                     '(choices: highest, high, medium). If None, precision is unchanged.')
+parser.add_argument('--checkpoint_dir', type=str, default=None,
+                    help='Directory to load model checkpoints')
 # Logging configuration
 parser.add_argument('--log_dir', type=str, default='../results/default',
                     help='Directory to save logs and checkpoints')
@@ -159,6 +162,21 @@ if args.embedding_filename is not None and not os.path.exists(args.embedding_fil
     args.embedding_filename = os.path.join(args.data_dir, args.embedding_filename)
     print(f"Resolving embedding_filename: `{temp_old_value}` --> `{args.embedding_filename}`")
     assert os.path.exists(args.embedding_filename), f"Embedding file `{args.embedding_filename}` does not exist."
+# Resolve device if not provided
+if args.device is None:
+    if args.model_class == 'catboost':
+        print("Model class is `catboost`, setting device to `cpu` since incremental training in catboost"
+              " is only supported on CPU.")
+        args.device = 'cpu'
+    else:
+        args.device = get_available_device()
+    print(f"Resolving device: `None` --> `{args.device}`")
+else:
+    if args.model_class == 'catboost' and args.device != 'cpu':
+        print(f"Model class is `catboost`, overriding user-specified device `{args.device}` to `cpu` since"
+              " incremental training in catboost is only supported on CPU.")
+        args.device = 'cpu'
+        print(f"Resolving device: `{args.device}` --> `{args.device}`")
 
 ## Get arguments
 # Model configuration
@@ -184,6 +202,7 @@ seed = args.seed
 device = args.device
 num_workers = args.num_workers
 matmul_precision = args.matmul_precision
+checkpoint_dir = args.checkpoint_dir
 # Logging configuration
 log_dir = args.log_dir
 os.makedirs(log_dir, exist_ok=True)
@@ -210,6 +229,7 @@ PLOTS_DIR = os.path.join(log_dir, "plots")
 set_plot_style(scale=1.25)  # Adjust scale for plotting
 SAVED_MODELS_DIR = os.path.join(log_dir, "saved_models")
 DEBUG_INFO_DIR = os.path.join(log_dir, "debug")
+CHECKPOINT_DIR = checkpoint_dir
 
 # %%
 ################
@@ -241,7 +261,8 @@ print("Node Attributes.shape: ", node_attributes.shape)
 # Load dataset
 ################
 
-train_dataset, test_dataset = load_dataset(dir_name=query_dir, seed=seed, replicate_test=True, target_test_size=batch_size_test, drop_duplicates=False)
+train_dataset, test_dataset = load_dataset(dir_name=query_dir, seed=seed, replicate_test=True,
+                                           target_test_size=batch_size_test, drop_duplicates=False)
 print("Train dataset...")
 print(f"  - No. of samples: {len(train_dataset)}")
 print(f"  - Min/Max distance: {train_dataset.D.min():.2f}/{train_dataset.D.max():.2f}")
@@ -464,7 +485,9 @@ elif model_class == 'catboost':
     from models.catboostmodel import CatBoostModel
 
     # Load custom node embeddings
+    assert embedding_filename is not None, "Provide an embedding filename for `catboost` model."
     custom_node_embeddings = read_embedding_file(embedding_filename)
+
 
     # Initialize model
     model = CatBoostModel(num_nodes=num_nodes,                      ## No. of nodes
@@ -475,6 +498,7 @@ elif model_class == 'catboostnn':
     from models.catboostnn import CatBoostNN
 
     # Load custom node embeddings
+    assert embedding_filename is not None, "Provide an embedding filename for `catboostnn` model."
     custom_node_embeddings = read_embedding_file(embedding_filename)
 
     # Initialize model
@@ -494,7 +518,18 @@ print(f"Model parameters size: {num_params}")
 
 # %%
 ################
-# Loss function and optimizer
+# Load model from checkpoint
+################
+
+if checkpoint_dir is not None:
+    checkpoint = load_model(model,
+                            file_name=f"{model_name}_{data_name}_{query_name}.pt",
+                            dir_name=CHECKPOINT_DIR,
+                            is_catboost=(model_class == 'catboost'))
+
+# %%
+################
+# Loss function, optimizer and device setup
 ################
 
 # Initialize loss function
@@ -506,14 +541,6 @@ optimizer = get_optimizer(optimizer_type, model, learning_rate)
 print(f"Optimizer: {optimizer}")
 
 # Check available device
-if args.model_class == 'catboost':
-    device = 'cpu'  # Incremental training in catboost is only supported on CPU
-    print(f"Setting device for catboost: `{args.device}` --> `{device}`")
-elif device is None:
-    print("No device specified by user, detecting available device...")
-    device = get_available_device()
-else:
-    print(f"Using user-specified device: {device}")
 print(f"Using Device: {device}")
 print_device_info(device)
 
@@ -541,9 +568,11 @@ print(f"Optimization Finished!")
 print(f"Precomputation time: {precomputation_time / 60:.2f} minutes")
 
 # Save the model
-save_model(model, model_name, data_name, query_name, dir_name=SAVED_MODELS_DIR, metadata={'catboost_model': model.catboost_model if model_class == 'catboost' else None})
+save_model(model,
+           file_name=f"{model_name}_{data_name}_{query_name}.pt",
+           dir_name=SAVED_MODELS_DIR,
+           is_catboost=(model_class == 'catboost'))
 
-# %%
 # (Optional) Plot epoch and iteration losses during training
 plot_learning_curves(train_history, n_batches=len(train_dataloader),
                      model_name=model_name, data_name=data_name, query_name=query_name,
@@ -673,4 +702,6 @@ if debug:
 
     }
     # Save debug information to a JSON file
-    save_dictionary(debug_info, model_name, data_name, query_name, dir_name=DEBUG_INFO_DIR)
+    save_dictionary(debug_info,
+                    file_name=f"{model_name}_{data_name}_{query_name}_debug_info.pt",
+                    dir_name=DEBUG_INFO_DIR)

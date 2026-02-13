@@ -142,9 +142,6 @@ def read_parts_file(dir_name, data_name, delimiter=None, comment='#'):
     return parts
 
 def read_embedding_file(file_name, delimiter=None, comment='#'):
-    if file_name is None:
-        print_warning("Warning: No embedding file provided.")
-        return None
     if not os.path.exists(file_name):
         raise FileNotFoundError(f"Embedding file `{file_name}` not found.")
     node_embeds = []

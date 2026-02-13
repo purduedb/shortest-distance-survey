@@ -60,13 +60,8 @@ class CatBoostNN(BaseModel):
         features = self.encode(x1, x2)
 
         x = features.float()  # Convert features to torch tensor
-        # x = self.bn1(x)
         x = self.relu(self.fc1(x))
-        # x = self.bn2(x)
-        # x = self.dropout(x)
         x = self.relu(self.fc2(x))
-        # x = self.dropout(x)
-        # x = torch.sigmoid(self.fc3(x))
         x = self.fc3(x)
 
         # Scale output to max_distance

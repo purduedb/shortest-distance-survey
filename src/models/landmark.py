@@ -53,23 +53,34 @@ class Landmark(BaseModel):
         Returns:
             torch.Tensor: The computed landmark distance matrix.
         """
-        self.train()  # Set the model to training mode
+        # Skip training if epochs is 0 or negative
+        if epochs <= 0:
+            return {
+                "loss_epoch_history": [],
+                "loss_iter_history": [],
+                "val_mre_epoch_history": [],
+                "time_history": [],
+            }
 
-        if epochs > 0:
-            # Select landmarks based on the chosen strategy
-            self.landmarks = select_landmarks(graph=self.graph,
-                                              num_landmarks=self.num_landmarks,
-                                              strategy=self.strategy,
-                                              weight_key=self.weight_key,
-                                              seed=self.seed,
-                                              subset=self.subset,
-                                              node_features=self.node_features)
+        # Set the model to training mode
+        self.train()
 
-            # Compute distances to selected landmarks
-            node_to_landmark_distances = compute_landmark_distances(graph=self.graph,
-                                                                    landmarks=self.landmarks,
-                                                                    weight_key=self.weight_key)
-            self.embedding.weight.data.copy_(torch.from_numpy(node_to_landmark_distances).float())
+        # Select landmarks based on the chosen strategy
+        self.landmarks = select_landmarks(graph=self.graph,
+                                            num_landmarks=self.num_landmarks,
+                                            strategy=self.strategy,
+                                            weight_key=self.weight_key,
+                                            seed=self.seed,
+                                            subset=self.subset,
+                                            node_features=self.node_features)
+
+        # Compute distances to selected landmarks
+        node_to_landmark_distances = compute_landmark_distances(graph=self.graph,
+                                                                landmarks=self.landmarks,
+                                                                weight_key=self.weight_key)
+
+        # Update the embedding layer with the computed distances
+        self.embedding.weight.data.copy_(torch.from_numpy(node_to_landmark_distances).float())
 
         return {
             "loss_epoch_history": [],

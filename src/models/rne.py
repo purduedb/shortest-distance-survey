@@ -6,6 +6,7 @@ References:
 
 import time
 import numpy as np
+import copy
 
 import torch
 import torch.nn as nn
@@ -83,6 +84,15 @@ class RNE(BaseModel):
         Trains the model using the provided dataloader.
         Optionally evaluates on validation data.
         """
+        # Skip training if epochs is 0 or negative
+        if epochs <= 0:
+            return {
+                "loss_epoch_history": [],
+                "loss_iter_history": [],
+                "val_mre_epoch_history": [],
+                "time_history": [],
+            }
+
         # Set the model to training mode
         self.train()
 
@@ -91,10 +101,12 @@ class RNE(BaseModel):
         criterion.to(device)
 
         # Initialize history lists for tracking training progress
-        loss_epoch_history = []      # Average train loss per epoch
-        loss_iter_history = []       # Train loss per batch
-        val_mre_epoch_history = []   # Validation MRE per epoch
-        time_history = []            # Time elapsed per epoch
+        loss_epoch_history = []                 # Average train loss per epoch
+        loss_iter_history = []                  # Train loss per batch
+        val_mre_epoch_history = []              # Validation MRE per epoch
+        time_history = []                       # Time elapsed per epoch
+        best_val_mre = float('inf')             # Best validation MRE observed
+        best_state_dict = self.state_dict()     # State dict for best model weights
 
         # Calculate how often to display progress
         # NOTE: max handles cases where dataloader is small
@@ -105,6 +117,8 @@ class RNE(BaseModel):
 
         ## Hierarchical training
         if self.parts is not None:
+            print(f"Starting hierarchical training with {self.parts.shape[1]} levels")
+
             num_levels = self.parts.shape[1]
             print(f"Number of hierarchical levels: {num_levels}")
             h_epochs = [5]*(num_levels-1) + [10]  # Train 10 epochs on the last level, 5 epochs on all other levels, TODO: make this as a parameter
@@ -112,8 +126,7 @@ class RNE(BaseModel):
             self.parts = self.parts.to(device)
 
             prev_embeddings = None
-            print(f"Starting hierarchical training with {self.parts.shape[1]} levels")
-            for level in range(self.parts.shape[1]):
+            for level in range(num_levels):
                 print(f"Training on hierarchical level {level} with {h_epochs[level]} epochs")
                 part_indices = self.parts[:, level]
 
@@ -196,14 +209,20 @@ class RNE(BaseModel):
             # If validation data is provided, evaluate model
             val_str = ""
             if val_dataloader is not None:
+                # Run evaluation on validation set
                 val_predictions, val_targets, _ = self.evaluate(
                     val_dataloader, device=device, verbose=False, profile_time=False
                 )
                 # Compute MRE on validation set
                 val_mre = np.mean(np.abs(val_predictions - val_targets) / np.maximum(val_targets, 1e-6))
+                val_str = f", Val MRE: {val_mre:.2%}"
                 val_mre_epoch_history.append(val_mre)
 
-                val_str = f", Val MRE: {val_mre:.2%}"
+                # Check for best model
+                if val_mre < best_val_mre:
+                    best_val_mre = val_mre
+                    # Deepcopy creates a separate memory allocation for these weights
+                    best_state_dict = copy.deepcopy(self.state_dict())
 
                 # Switch back to training mode after validation
                 self.train()
@@ -232,6 +251,9 @@ class RNE(BaseModel):
                 if time_elapsed >= time_limit:
                     print(f"Time limit of {time_limit} minutes reached. Stopping training.")
                     break
+
+        # Load best model weights before returning
+        self.load_state_dict(best_state_dict)
 
         # Return training and validation history for analysis
         return {

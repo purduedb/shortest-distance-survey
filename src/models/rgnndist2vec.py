@@ -6,6 +6,7 @@ References:
 
 import time
 import numpy as np
+import copy
 
 import torch
 import torch.nn as nn
@@ -15,9 +16,11 @@ from torch_geometric.transforms import AddSelfLoops, ToUndirected
 from torch_geometric.nn import GCNConv, GATConv, SAGEConv
 from torch_geometric.utils import k_hop_subgraph
 
+from models.basemodel import BaseModel
+
 
 # Define the RGNNdist2vec model
-class RGNNdist2vec(nn.Module):
+class RGNNdist2vec(BaseModel):
     def __init__(self, n_input, n_hidden_1, n_hidden_2, layer_type, node_attributes, edge_attributes, max_distance=1.0, disable_edge_weight=True):
         super().__init__()
         self.max_distance = max_distance
@@ -104,7 +107,7 @@ class RGNNdist2vec(nn.Module):
                 embeddings = self.cached_embeddings
                 print("Using cached embeddings.")
             else:
-                # Compute embeddings for the entire graph
+                # Compute embeddings for the entire graph and cache them
                 self.cached_embeddings = self.encode(self.geometric_data.x, self.geometric_data.edge_index, self.geometric_data.edge_weight).detach().clone()
                 embeddings = self.cached_embeddings
                 print("Computed embeddings and cached them.")
@@ -155,8 +158,8 @@ class RGNNdist2vec(nn.Module):
         subgraph_features, subgraph_edge_index, subgraph_edge_weight = subgraph
 
         # Compute embeddings for the subgraph and perform forward pass
-        embeddings = self.encode(subgraph_features, subgraph_edge_index, subgraph_edge_weight)
-        y_pred = self.forward(x1_sub, x2_sub, embeddings)
+        sub_embeddings = self.encode(subgraph_features, subgraph_edge_index, subgraph_edge_weight)
+        y_pred = self.forward(x1_sub, x2_sub, sub_embeddings)
 
         # Normalize predictions and targets
         y_pred = y_pred / self.max_distance
@@ -183,6 +186,15 @@ class RGNNdist2vec(nn.Module):
         Trains the model using the provided dataloader.
         Optionally evaluates on validation data.
         """
+        # Skip training if epochs is 0 or negative
+        if epochs <= 0:
+            return {
+                "loss_epoch_history": [],
+                "loss_iter_history": [],
+                "val_mre_epoch_history": [],
+                "time_history": [],
+            }
+
         # Set the model to training mode
         self.train()
 
@@ -192,10 +204,12 @@ class RGNNdist2vec(nn.Module):
         self.geometric_data.to(device)
 
         # Initialize history lists for tracking training progress
-        loss_epoch_history = []      # Average train loss per epoch
-        loss_iter_history = []       # Train loss per batch
-        val_mre_epoch_history = []   # Validation MRE per epoch
-        time_history = []            # Time elapsed per epoch
+        loss_epoch_history = []                 # Average train loss per epoch
+        loss_iter_history = []                  # Train loss per batch
+        val_mre_epoch_history = []              # Validation MRE per epoch
+        time_history = []                       # Time elapsed per epoch
+        best_val_mre = float('inf')             # Best validation MRE observed
+        best_state_dict = self.state_dict()     # State dict for best model weights
 
         # Calculate how often to display progress
         # NOTE: max handles cases where dataloader is small
@@ -206,6 +220,7 @@ class RGNNdist2vec(nn.Module):
 
         # Start time for training
         start_time = time.perf_counter()  # Start time for training
+
         for epoch in range(epochs):  # Loop over epochs
             # Initialize running loss
             running_loss = 0.0
@@ -223,6 +238,7 @@ class RGNNdist2vec(nn.Module):
                 loss = self._train_step(self.geometric_data, i, j, d_ij, criterion, optimizer, self.num_layers, subgraph_node_map)
                 running_loss += loss.item()
                 loss_iter_history.append(loss.item())
+
                 # Display progress at intervals
                 if (idx + 1) % display_step == 0:  # Print every display_step
                     if loss.item() > 1.0:
@@ -242,14 +258,20 @@ class RGNNdist2vec(nn.Module):
             # If validation data is provided, evaluate model
             val_str = ""
             if val_dataloader is not None:
+                # Run evaluation on validation set
                 val_predictions, val_targets, _ = self.evaluate(
                     val_dataloader, device=device, verbose=False, profile_time=False
                 )
                 # Compute MRE on validation set
                 val_mre = np.mean(np.abs(val_predictions - val_targets) / np.maximum(val_targets, 1e-6))
+                val_str = f", Val MRE: {val_mre:.2%}"
                 val_mre_epoch_history.append(val_mre)
 
-                val_str = f", Val MRE: {val_mre:.2%}"
+                # Check for best model
+                if val_mre < best_val_mre:
+                    best_val_mre = val_mre
+                    # Deepcopy creates a separate memory allocation for these weights
+                    best_state_dict = copy.deepcopy(self.state_dict())
 
                 # Switch back to training mode after validation
                 self.train()
@@ -278,6 +300,9 @@ class RGNNdist2vec(nn.Module):
                 if time_elapsed >= time_limit:
                     print(f"Time limit of {time_limit} minutes reached. Stopping training.")
                     break
+
+        # Load best model weights before returning
+        self.load_state_dict(best_state_dict)
 
         # Return training and validation history for analysis
         return {

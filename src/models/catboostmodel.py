@@ -92,11 +92,17 @@ class CatBoostModel(BaseModel):
         return predictions
 
     def fit(self, dataloader=None, val_dataloader=None, epochs=1, learning_rate=0.1, device="cpu", **kwargs):
+        # Skip training if epochs is 0 or negative
         if epochs <= 0:
-            print("Warning: epochs should be > 0 for CatBoost training, setting it to 100 to avoid issues with training...")
-            epochs = 100
+            return {
+                "loss_epoch_history": [],
+                "loss_iter_history": [],
+                "val_mre_epoch_history": [],
+                "time_history": [],
+            }
 
         # Initialize CatBoost regressor
+        # TODO: Handle case when catboost_model is loaded from checkpoint as it overwrites the model here
         self.catboost_model = CatBoostRegressor(
             iterations=epochs,              ## Total number of trees
             learning_rate=learning_rate,
@@ -178,13 +184,10 @@ class CatBoostModel(BaseModel):
         else:
             print(f"Model file `{model_file}` not found.")
 
-        loss_epoch_history = []  # Store the loss values per epoch
-        loss_iter_history = []  # Store the loss values per iteration
-        val_mre_epoch_history = []  # Store the validation mre values per epoch
         return {
-            "loss_epoch_history": loss_epoch_history,
-            "loss_iter_history": loss_iter_history,
-            "val_mre_epoch_history": val_mre_epoch_history,
+            "loss_epoch_history": [],
+            "loss_iter_history": [],
+            "val_mre_epoch_history": [],
             "time_history": [],
         }
 

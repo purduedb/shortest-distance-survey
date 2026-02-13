@@ -136,7 +136,7 @@ def load_dataset(dir_name, delimiter=None, comment='#', test_size=0.2, seed=42, 
     return train_dataset, test_dataset
 
 ## Function to save a model to a file
-def save_model(model, model_name, data_name, data_strategy, dir_name, metadata=None):
+def save_model(model, file_name, dir_name='.', is_catboost=False):
     """
     Save the trained model to a file.
     """
@@ -144,13 +144,13 @@ def save_model(model, model_name, data_name, data_strategy, dir_name, metadata=N
     os.makedirs(dir_name, exist_ok=True)
 
     # Save the model
-    file_name = os.path.join(dir_name, f"{model_name}_{data_name}_{data_strategy}.pt")
+    file_name = os.path.join(dir_name, file_name)
     print_green(f"Saving model: {file_name}")
 
     # Build the dictionary to save
     dict_to_save = {'model_state_dict': model.state_dict()}
-    if metadata is not None:
-        dict_to_save['metadata'] = metadata
+    if is_catboost:
+        dict_to_save['catboost_model'] = model.catboost_model
     torch.save(dict_to_save, file_name)
 
     # Print size in MB of each parameter
@@ -168,29 +168,27 @@ def save_model(model, model_name, data_name, data_strategy, dir_name, metadata=N
     print(f"  - Model size: {model_size:.2f} MB")
 
 ## Function to load a model from a file
-def load_model(model_name, data_name, data_strategy, dir_name, device='cpu'):
+def load_model(model, file_name, dir_name='.', is_catboost=False):
     """
     Load a trained model from a file.
-
-    Args:
-        model_name (str): Name of the model.
-        data_name (str): Name of the dataset.
-        data_strategy (str): Strategy used for the dataset.
-        dir_name (str): Directory where the model is saved.
-        device (str): Device to load the model on ('cpu', 'cuda', 'mps').
-
-    Returns:
-        model: The loaded model.
-        metadata: Metadata associated with the model, if any.
     """
     # Load the model
-    file_name = os.path.join(dir_name, f"{model_name}_{data_name}_{data_strategy}.pt")
+    file_name = os.path.join(dir_name, file_name)
     print_green(f"Reading model: {file_name}")
-    checkpoint = torch.load(file_name, map_location=device)
+    checkpoint = torch.load(file_name, map_location='cpu')
+    model.load_state_dict(checkpoint['model_state_dict'])
+    if is_catboost:
+        if 'catboost_model' in checkpoint:
+            model.catboost_model = checkpoint['catboost_model']
+        elif 'metadata' in checkpoint:
+            # For backward compatibility with older checkpoints where `catboost_model` was stored under `metadata`
+            model.catboost_model = checkpoint['metadata']['catboost_model']
+        else:
+            assert False, "Expected `catboost_model` in checkpoint for CatBoostNN model"
     return checkpoint
 
 ## Function to save json data to a file
-def save_dictionary(data, model_name, data_name, data_strategy, dir_name):
+def save_dictionary(data, file_name, dir_name='.'):
     """
     Save data dictionary to a torch file.
     """
@@ -198,21 +196,21 @@ def save_dictionary(data, model_name, data_name, data_strategy, dir_name):
     os.makedirs(dir_name, exist_ok=True)
 
     # Save the data to a torch file
-    file_name = os.path.join(dir_name, f"{model_name}_{data_name}_{data_strategy}_debug_info.pt")
+    file_name = os.path.join(dir_name, file_name)
     print_green(f"Saving debug information: {file_name}")
     torch.save(data, file_name)
 
-    # Print model size
+    # Print dictionary size
     file_size = os.path.getsize(file_name) / (1024 * 1024)  # Convert to MB
     print(f"File size: {file_size:.2f} MB")
 
 ## Function to load json data from a file
-def load_dictionary(model_name, data_name, data_strategy, dir_name):
+def load_dictionary(file_name, dir_name='.'):
     """
     Load data dictionary from a torch file.
     """
     # Load the data from a torch file
-    file_name = os.path.join(dir_name, f"{model_name}_{data_name}_{data_strategy}_debug_info.pt")
+    file_name = os.path.join(dir_name, file_name)
     print_green(f"Reading debug information: {file_name}")
     data = torch.load(file_name, map_location='cpu')
     return data
