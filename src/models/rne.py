@@ -106,7 +106,7 @@ class RNE(BaseModel):
         val_mre_epoch_history = []              # Validation MRE per epoch
         time_history = []                       # Time elapsed per epoch
         best_val_mre = float('inf')             # Best validation MRE observed
-        best_state_dict = self.state_dict()     # State dict for best model weights
+        best_state_dict = None                  # State dict for best model weights
 
         # Calculate how often to display progress
         # NOTE: max handles cases where dataloader is small
@@ -252,8 +252,9 @@ class RNE(BaseModel):
                     print(f"Time limit of {time_limit} minutes reached. Stopping training.")
                     break
 
-        # Load best model weights before returning
-        self.load_state_dict(best_state_dict)
+        # Load best model weights before returning (if available)
+        if best_state_dict is not None:
+            self.load_state_dict(best_state_dict)
 
         # Return training and validation history for analysis
         return {
