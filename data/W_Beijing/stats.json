@@ -1,0 +1,12 @@
+{
+  "data_name": "W_Beijing",
+  "nodes": 74383,
+  "edges": 103447,
+  "min_node_degree": 1,
+  "max_node_degree": 29,
+  "avg_node_degree": 2.78,
+  "min_edge_weight": 1,
+  "max_edge_weight": 29242,
+  "avg_edge_weight": 348.14,
+  "diameter_km": 294.38
+}

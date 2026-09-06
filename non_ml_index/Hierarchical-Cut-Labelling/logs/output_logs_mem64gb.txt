@@ -1,0 +1,230 @@
+========================================
+Dataset: W_Jinan
+========================================
+Building HCL index for W_Jinan...
+mkdir -p ./saved_indexes
+./build/index ../../../data/W_Jinan/W_Jinan.edges ./saved_indexes/W_Jinan.hl
+run index
+
+reading graph from ../../../data/W_Jinan/W_Jinan.edges
+max vertex id: 8908
+read 8908 vertices and 14070 edges
+index build
+created index of size 3.6 MB in 0.2s
+build time: 0.2 s
+index size: 3.6 MB
+remove old index file
+----------------------------------------
+Evaluating HCL index for W_Jinan (1M random queries)...
+./build/query ./saved_indexes/W_Jinan.hl
+read index in 0.0109581s (3 MB)
+ran 1000000 random queries in 0.0370369s (hoplinks=15.1871)
+query latency: 0.037 us
+========================================
+Dataset: W_Shenzhen
+========================================
+Building HCL index for W_Shenzhen...
+mkdir -p ./saved_indexes
+./build/index ../../../data/W_Shenzhen/W_Shenzhen.edges ./saved_indexes/W_Shenzhen.hl
+run index
+
+reading graph from ../../../data/W_Shenzhen/W_Shenzhen.edges
+max vertex id: 11933
+read 11933 vertices and 18904 edges
+index build
+created index of size 5.0 MB in 0.2s
+build time: 0.2 s
+index size: 5.0 MB
+remove old index file
+----------------------------------------
+Evaluating HCL index for W_Shenzhen (1M random queries)...
+./build/query ./saved_indexes/W_Shenzhen.hl
+read index in 0.00721723s (5 MB)
+ran 1000000 random queries in 0.0378799s (hoplinks=14.1657)
+query latency: 0.038 us
+========================================
+Dataset: W_Chengdu
+========================================
+Building HCL index for W_Chengdu...
+mkdir -p ./saved_indexes
+./build/index ../../../data/W_Chengdu/W_Chengdu.edges ./saved_indexes/W_Chengdu.hl
+run index
+
+reading graph from ../../../data/W_Chengdu/W_Chengdu.edges
+max vertex id: 17567
+read 17567 vertices and 25295 edges
+index build
+created index of size 9.2 MB in 0.6s
+build time: 0.6 s
+index size: 9.2 MB
+remove old index file
+----------------------------------------
+Evaluating HCL index for W_Chengdu (1M random queries)...
+./build/query ./saved_indexes/W_Chengdu.hl
+read index in 0.0120227s (9 MB)
+ran 1000000 random queries in 0.0487347s (hoplinks=25.2194)
+query latency: 0.049 us
+========================================
+Dataset: W_Beijing
+========================================
+Building HCL index for W_Beijing...
+mkdir -p ./saved_indexes
+./build/index ../../../data/W_Beijing/W_Beijing.edges ./saved_indexes/W_Beijing.hl
+run index
+
+reading graph from ../../../data/W_Beijing/W_Beijing.edges
+max vertex id: 74383
+read 74383 vertices and 103447 edges
+index build
+created index of size 89.1 MB in 5.6s
+build time: 5.6 s
+index size: 89.1 MB
+remove old index file
+----------------------------------------
+Evaluating HCL index for W_Beijing (1M random queries)...
+./build/query ./saved_indexes/W_Beijing.hl
+read index in 0.159104s (89 MB)
+ran 1000000 random queries in 0.146611s (hoplinks=61.1243)
+query latency: 0.147 us
+========================================
+Dataset: W_Shanghai
+========================================
+Building HCL index for W_Shanghai...
+mkdir -p ./saved_indexes
+./build/index ../../../data/W_Shanghai/W_Shanghai.edges ./saved_indexes/W_Shanghai.hl
+run index
+
+reading graph from ../../../data/W_Shanghai/W_Shanghai.edges
+max vertex id: 74903
+read 74903 vertices and 102950 edges
+index build
+created index of size 70.2 MB in 3.6s
+build time: 3.6 s
+index size: 70.2 MB
+remove old index file
+----------------------------------------
+Evaluating HCL index for W_Shanghai (1M random queries)...
+./build/query ./saved_indexes/W_Shanghai.hl
+read index in 0.129598s (70 MB)
+ran 1000000 random queries in 0.130663s (hoplinks=51.3196)
+query latency: 0.131 us
+========================================
+Dataset: W_NewYork
+========================================
+Building HCL index for W_NewYork...
+mkdir -p ./saved_indexes
+./build/index ../../../data/W_NewYork/W_NewYork.edges ./saved_indexes/W_NewYork.hl
+run index
+
+reading graph from ../../../data/W_NewYork/W_NewYork.edges
+max vertex id: 334930
+read 334930 vertices and 445933 edges
+index build
+created index of size 210.1 MB in 5.5s
+build time: 5.5 s
+index size: 210.1 MB
+remove old index file
+----------------------------------------
+Evaluating HCL index for W_NewYork (1M random queries)...
+./build/query ./saved_indexes/W_NewYork.hl
+read index in 0.227848s (210 MB)
+ran 1000000 random queries in 0.106356s (hoplinks=14.3998)
+query latency: 0.106 us
+========================================
+Dataset: W_Chicago
+========================================
+Building HCL index for W_Chicago...
+mkdir -p ./saved_indexes
+./build/index ../../../data/W_Chicago/W_Chicago.edges ./saved_indexes/W_Chicago.hl
+run index
+
+reading graph from ../../../data/W_Chicago/W_Chicago.edges
+max vertex id: 386533
+read 386533 vertices and 549635 edges
+index build
+created index of size 508.5 MB in 23.8s
+build time: 23.8 s
+index size: 508.5 MB
+remove old index file
+----------------------------------------
+Evaluating HCL index for W_Chicago (1M random queries)...
+./build/query ./saved_indexes/W_Chicago.hl
+read index in 0.470325s (508 MB)
+ran 1000000 random queries in 0.242947s (hoplinks=55.4542)
+query latency: 0.243 us
+========================================
+Dataset: FLA
+========================================
+Building HCL index for FLA...
+mkdir -p ./saved_indexes
+./build/index ../../../data/FLA/FLA.edges ./saved_indexes/FLA.hl
+run index
+
+reading graph from ../../../data/FLA/FLA.edges
+max vertex id: 1070376
+read 1070376 vertices and 1343951 edges
+index build
+created index of size 516.0 MB in 20.8s
+build time: 20.8 s
+index size: 516.0 MB
+remove old index file
+----------------------------------------
+Evaluating HCL index for FLA (1M random queries)...
+./build/query ./saved_indexes/FLA.hl
+read index in 0.571632s (516 MB)
+ran 1000000 random queries in 0.132904s (hoplinks=13.6782)
+query latency: 0.133 us
+========================================
+Dataset: E
+========================================
+Building HCL index for E...
+mkdir -p ./saved_indexes
+./build/index ../../../data/E/E.edges ./saved_indexes/E.hl
+run index
+
+reading graph from ../../../data/E/E.edges
+max vertex id: 3598623
+read 3598623 vertices and 4354029 edges
+index build
+created index of size 3640.1 MB in 140.6s
+build time: 140.6 s
+index size: 3640.1 MB
+----------------------------------------
+Evaluating HCL index for E (1M random queries)...
+./build/query ./saved_indexes/E.hl
+read index in 3.77883s (3640 MB)
+ran 1000000 random queries in 0.266352s (hoplinks=30.3626)
+query latency: 0.266 us
+========================================
+Dataset: W
+========================================
+Building HCL index for W...
+mkdir -p ./saved_indexes
+./build/index ../../../data/W/W.edges ./saved_indexes/W.hl
+run index
+
+reading graph from ../../../data/W/W.edges
+max vertex id: 6262104
+read 6262104 vertices and 7559642 edges
+index build
+created index of size 6735.5 MB in 247.9s
+build time: 247.9 s
+index size: 6735.5 MB
+----------------------------------------
+Evaluating HCL index for W (1M random queries)...
+./build/query ./saved_indexes/W.hl
+read index in 6.63417s (6735 MB)
+ran 1000000 random queries in 0.339761s (hoplinks=41.3472)
+query latency: 0.340 us
+========================================
+Dataset: CTR
+========================================
+Building HCL index for CTR...
+mkdir -p ./saved_indexes
+./build/index ../../../data/CTR/CTR.edges ./saved_indexes/CTR.hl
+run index
+
+reading graph from ../../../data/CTR/CTR.edges
+max vertex id: 14081816
+read 14081816 vertices and 16933413 edges
+make: *** [makefile:24: build] Killed

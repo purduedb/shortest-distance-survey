@@ -1,0 +1,12 @@
+{
+  "data_name": "W_Chengdu",
+  "nodes": 17567,
+  "edges": 25295,
+  "min_node_degree": 1,
+  "max_node_degree": 11,
+  "avg_node_degree": 2.88,
+  "min_edge_weight": 1,
+  "max_edge_weight": 41682,
+  "avg_edge_weight": 413.08,
+  "diameter_km": 222.8
+}

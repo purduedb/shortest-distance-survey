@@ -1,0 +1,528 @@
+========================================
+Dataset: W_Jinan
+========================================
+Building HCL index for W_Jinan...
+run index
+
+reading graph from ../../../data/W_Jinan/W_Jinan.edges
+max vertex id: 8908
+read 8908 vertices and 14070 edges
+threads: 16
+seed: 42
+index build
+created index of size 3.6 MB in 0.1s
+build time: 0.1 s
+index size: 3.6 MB
+remove old index file
+	Command being timed: "./build/index ../../../data/W_Jinan/W_Jinan.edges ./saved_indexes/W_Jinan.hl"
+	User time (seconds): 0.72
+	System time (seconds): 0.11
+	Percent of CPU this job got: 524%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.16
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 32800
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 4712
+	Voluntary context switches: 816
+	Involuntary context switches: 187
+	Swaps: 0
+	File system inputs: 8
+	File system outputs: 7360
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+----------------------------------------
+Evaluating HCL index for W_Jinan (1M random queries)...
+read index in 0.0091144s (3 MB)
+ran 1000000 random queries in 0.0365751s (hoplinks=16.0376)
+query latency: 0.037 us
+========================================
+Dataset: W_Shenzhen
+========================================
+Building HCL index for W_Shenzhen...
+run index
+
+reading graph from ../../../data/W_Shenzhen/W_Shenzhen.edges
+max vertex id: 11933
+read 11933 vertices and 18904 edges
+threads: 16
+seed: 42
+index build
+created index of size 5.1 MB in 0.2s
+build time: 0.2 s
+index size: 5.1 MB
+remove old index file
+	Command being timed: "./build/index ../../../data/W_Shenzhen/W_Shenzhen.edges ./saved_indexes/W_Shenzhen.hl"
+	User time (seconds): 1.09
+	System time (seconds): 0.13
+	Percent of CPU this job got: 550%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.22
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 36776
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 6116
+	Voluntary context switches: 1196
+	Involuntary context switches: 458
+	Swaps: 0
+	File system inputs: 8
+	File system outputs: 10376
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+----------------------------------------
+Evaluating HCL index for W_Shenzhen (1M random queries)...
+read index in 0.0162276s (5 MB)
+ran 1000000 random queries in 0.0429354s (hoplinks=14.3411)
+query latency: 0.043 us
+========================================
+Dataset: W_Chengdu
+========================================
+Building HCL index for W_Chengdu...
+run index
+
+reading graph from ../../../data/W_Chengdu/W_Chengdu.edges
+max vertex id: 17567
+read 17567 vertices and 25295 edges
+threads: 16
+seed: 42
+index build
+created index of size 9.0 MB in 0.3s
+build time: 0.3 s
+index size: 9.0 MB
+remove old index file
+	Command being timed: "./build/index ../../../data/W_Chengdu/W_Chengdu.edges ./saved_indexes/W_Chengdu.hl"
+	User time (seconds): 1.97
+	System time (seconds): 0.18
+	Percent of CPU this job got: 588%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.36
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 44316
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 8527
+	Voluntary context switches: 1329
+	Involuntary context switches: 592
+	Swaps: 0
+	File system inputs: 8
+	File system outputs: 18288
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+----------------------------------------
+Evaluating HCL index for W_Chengdu (1M random queries)...
+read index in 0.0239234s (8 MB)
+ran 1000000 random queries in 0.0507701s (hoplinks=24.3565)
+query latency: 0.051 us
+========================================
+Dataset: W_Beijing
+========================================
+Building HCL index for W_Beijing...
+run index
+
+reading graph from ../../../data/W_Beijing/W_Beijing.edges
+max vertex id: 74383
+read 74383 vertices and 103447 edges
+threads: 16
+seed: 42
+index build
+created index of size 87.0 MB in 2.4s
+build time: 2.4 s
+index size: 87.0 MB
+remove old index file
+	Command being timed: "./build/index ../../../data/W_Beijing/W_Beijing.edges ./saved_indexes/W_Beijing.hl"
+	User time (seconds): 19.63
+	System time (seconds): 1.18
+	Percent of CPU this job got: 597%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.48
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 257412
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 91121
+	Voluntary context switches: 5331
+	Involuntary context switches: 3150
+	Swaps: 0
+	File system inputs: 6152
+	File system outputs: 177560
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+----------------------------------------
+Evaluating HCL index for W_Beijing (1M random queries)...
+read index in 0.0987619s (87 MB)
+ran 1000000 random queries in 0.147229s (hoplinks=64.7067)
+query latency: 0.147 us
+========================================
+Dataset: W_Shanghai
+========================================
+Building HCL index for W_Shanghai...
+run index
+
+reading graph from ../../../data/W_Shanghai/W_Shanghai.edges
+max vertex id: 74903
+read 74903 vertices and 102950 edges
+threads: 16
+seed: 42
+index build
+created index of size 69.2 MB in 1.6s
+build time: 1.6 s
+index size: 69.2 MB
+remove old index file
+	Command being timed: "./build/index ../../../data/W_Shanghai/W_Shanghai.edges ./saved_indexes/W_Shanghai.hl"
+	User time (seconds): 14.27
+	System time (seconds): 1.00
+	Percent of CPU this job got: 695%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.19
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 182668
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 48559
+	Voluntary context switches: 8835
+	Involuntary context switches: 3570
+	Swaps: 0
+	File system inputs: 6112
+	File system outputs: 140976
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+----------------------------------------
+Evaluating HCL index for W_Shanghai (1M random queries)...
+read index in 0.0809788s (69 MB)
+ran 1000000 random queries in 0.13201s (hoplinks=43.1964)
+query latency: 0.132 us
+========================================
+Dataset: W_NewYork
+========================================
+Building HCL index for W_NewYork...
+run index
+
+reading graph from ../../../data/W_NewYork/W_NewYork.edges
+max vertex id: 334930
+read 334930 vertices and 445933 edges
+threads: 16
+seed: 42
+index build
+created index of size 212.1 MB in 5.4s
+build time: 5.4 s
+index size: 212.1 MB
+remove old index file
+	Command being timed: "./build/index ../../../data/W_NewYork/W_NewYork.edges ./saved_indexes/W_NewYork.hl"
+	User time (seconds): 39.45
+	System time (seconds): 2.07
+	Percent of CPU this job got: 578%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:07.17
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 509100
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 347477
+	Voluntary context switches: 2155
+	Involuntary context switches: 2454
+	Swaps: 0
+	File system inputs: 29200
+	File system outputs: 431120
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+----------------------------------------
+Evaluating HCL index for W_NewYork (1M random queries)...
+read index in 0.288237s (212 MB)
+ran 1000000 random queries in 0.105904s (hoplinks=14.1785)
+query latency: 0.106 us
+========================================
+Dataset: W_Chicago
+========================================
+Building HCL index for W_Chicago...
+run index
+
+reading graph from ../../../data/W_Chicago/W_Chicago.edges
+max vertex id: 386533
+read 386533 vertices and 549635 edges
+threads: 16
+seed: 42
+index build
+created index of size 500.3 MB in 17.6s
+build time: 17.6 s
+index size: 500.3 MB
+remove old index file
+	Command being timed: "./build/index ../../../data/W_Chicago/W_Chicago.edges ./saved_indexes/W_Chicago.hl"
+	User time (seconds): 107.48
+	System time (seconds): 5.27
+	Percent of CPU this job got: 521%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.63
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1466408
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 896859
+	Voluntary context switches: 4809
+	Involuntary context switches: 5953
+	Swaps: 0
+	File system inputs: 36136
+	File system outputs: 1021048
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+----------------------------------------
+Evaluating HCL index for W_Chicago (1M random queries)...
+read index in 0.589231s (500 MB)
+ran 1000000 random queries in 0.269216s (hoplinks=61.4613)
+query latency: 0.269 us
+========================================
+Dataset: FLA
+========================================
+Building HCL index for FLA...
+run index
+
+reading graph from ../../../data/FLA/FLA.edges
+max vertex id: 1070376
+read 1070376 vertices and 1343951 edges
+threads: 16
+seed: 42
+index build
+created index of size 520.5 MB in 17.7s
+build time: 17.7 s
+index size: 520.5 MB
+remove old index file
+	Command being timed: "./build/index ../../../data/FLA/FLA.edges ./saved_indexes/FLA.hl"
+	User time (seconds): 99.86
+	System time (seconds): 5.63
+	Percent of CPU this job got: 486%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.68
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1307312
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1585499
+	Voluntary context switches: 1139
+	Involuntary context switches: 2414
+	Swaps: 0
+	File system inputs: 92824
+	File system outputs: 1055352
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+----------------------------------------
+Evaluating HCL index for FLA (1M random queries)...
+read index in 0.539599s (520 MB)
+ran 1000000 random queries in 0.134488s (hoplinks=13.7355)
+query latency: 0.134 us
+========================================
+Dataset: E
+========================================
+Building HCL index for E...
+run index
+
+reading graph from ../../../data/E/E.edges
+max vertex id: 3598623
+read 3598623 vertices and 4354029 edges
+threads: 16
+seed: 42
+index build
+created index of size 3688.6 MB in 135.8s
+build time: 135.8 s
+index size: 3688.6 MB
+remove old index file
+	Command being timed: "./build/index ../../../data/E/E.edges ./saved_indexes/E.hl"
+	User time (seconds): 915.89
+	System time (seconds): 64.25
+	Percent of CPU this job got: 585%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:47.43
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 7763232
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 23019999
+	Voluntary context switches: 2183
+	Involuntary context switches: 26843
+	Swaps: 0
+	File system inputs: 325648
+	File system outputs: 7517728
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+----------------------------------------
+Evaluating HCL index for E (1M random queries)...
+read index in 3.71143s (3688 MB)
+ran 1000000 random queries in 0.305286s (hoplinks=30.4975)
+query latency: 0.305 us
+========================================
+Dataset: W
+========================================
+Building HCL index for W...
+run index
+
+reading graph from ../../../data/W/W.edges
+max vertex id: 6262104
+read 6262104 vertices and 7559642 edges
+threads: 16
+seed: 42
+index build
+created index of size 7010.1 MB in 247.2s
+build time: 247.2 s
+index size: 7010.1 MB
+remove old index file
+	Command being timed: "./build/index ../../../data/W/W.edges ./saved_indexes/W.hl"
+	User time (seconds): 1907.76
+	System time (seconds): 130.59
+	Percent of CPU this job got: 660%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 5:08.55
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 13833768
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 50417863
+	Voluntary context switches: 10125
+	Involuntary context switches: 62000
+	Swaps: 0
+	File system inputs: 491560
+	File system outputs: 14293296
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+----------------------------------------
+Evaluating HCL index for W (1M random queries)...
+read index in 6.77199s (7010 MB)
+ran 1000000 random queries in 0.363485s (hoplinks=41.4845)
+query latency: 0.363 us
+========================================
+Dataset: CTR
+========================================
+Building HCL index for CTR...
+run index
+
+reading graph from ../../../data/CTR/CTR.edges
+max vertex id: 14081816
+read 14081816 vertices and 16933413 edges
+threads: 16
+seed: 42
+index build
+created index of size 27769.6 MB in 1150.3s
+build time: 1150.3 s
+index size: 27769.6 MB
+remove old index file
+	Command being timed: "./build/index ../../../data/CTR/CTR.edges ./saved_indexes/CTR.hl"
+	User time (seconds): 8890.05
+	System time (seconds): 557.21
+	Percent of CPU this job got: 701%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 22:26.17
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 74379212
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 215599149
+	Voluntary context switches: 8335
+	Involuntary context switches: 259041
+	Swaps: 0
+	File system inputs: 491536
+	File system outputs: 56730328
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+----------------------------------------
+Evaluating HCL index for CTR (1M random queries)...
+read index in 25.2907s (27769 MB)
+ran 1000000 random queries in 0.445015s (hoplinks=62.6568)
+query latency: 0.445 us
+========================================
+Dataset: USA
+========================================
+Building HCL index for USA...
+run index
+
+reading graph from ../../../data/USA/USA.edges
+max vertex id: 23947347
+read 23947347 vertices and 28854312 edges
+threads: 16
+seed: 42
+index build
+created index of size 56436.6 MB in 2673.8s
+build time: 2673.8 s
+index size: 56436.6 MB
+remove old index file
+	Command being timed: "./build/index ../../../data/USA/USA.edges ./saved_indexes/USA.hl"
+	User time (seconds): 17986.09
+	System time (seconds): 1096.57
+	Percent of CPU this job got: 620%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 51:14.73
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 123297672
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 43
+	Minor (reclaiming a frame) page faults: 423337446
+	Voluntary context switches: 13555
+	Involuntary context switches: 624111
+	Swaps: 0
+	File system inputs: 492064
+	File system outputs: 115340360
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+----------------------------------------
+Evaluating HCL index for USA (1M random queries)...
+read index in 59.1921s (56436 MB)
+ran 1000000 random queries in 0.5786s (hoplinks=65.9728)
+query latency: 0.579 us

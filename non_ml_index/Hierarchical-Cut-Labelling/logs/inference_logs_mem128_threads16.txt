@@ -1,0 +1,360 @@
+========================================
+Dataset: W_Jinan
+========================================
+Evaluating HCL index for W_Jinan (1M random queries)...
+read index in 0.0600666s (3 MB)
+ran 1000000 random queries in 0.0370123s (hoplinks=16.0304)
+query latency: 0.037 us
+	Command being timed: "./build/query ./saved_indexes/W_Jinan.hl"
+	User time (seconds): 0.06
+	System time (seconds): 0.02
+	Percent of CPU this job got: 41%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.21
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 34300
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1
+	Minor (reclaiming a frame) page faults: 3849
+	Voluntary context switches: 24
+	Involuntary context switches: 2
+	Swaps: 0
+	File system inputs: 7776
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+========================================
+Dataset: W_Shenzhen
+========================================
+Evaluating HCL index for W_Shenzhen (1M random queries)...
+read index in 0.0964607s (5 MB)
+ran 1000000 random queries in 0.0393846s (hoplinks=14.3409)
+query latency: 0.039 us
+	Command being timed: "./build/query ./saved_indexes/W_Shenzhen.hl"
+	User time (seconds): 0.07
+	System time (seconds): 0.02
+	Percent of CPU this job got: 50%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.18
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 36476
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 4237
+	Voluntary context switches: 19
+	Involuntary context switches: 2
+	Swaps: 0
+	File system inputs: 10368
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+========================================
+Dataset: W_Chengdu
+========================================
+Evaluating HCL index for W_Chengdu (1M random queries)...
+read index in 0.0456894s (8 MB)
+ran 1000000 random queries in 0.0481533s (hoplinks=24.3454)
+query latency: 0.048 us
+	Command being timed: "./build/query ./saved_indexes/W_Chengdu.hl"
+	User time (seconds): 0.08
+	System time (seconds): 0.03
+	Percent of CPU this job got: 76%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.14
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 40576
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 5250
+	Voluntary context switches: 18
+	Involuntary context switches: 1
+	Swaps: 0
+	File system inputs: 18280
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+========================================
+Dataset: W_Beijing
+========================================
+Evaluating HCL index for W_Beijing (1M random queries)...
+read index in 0.21916s (87 MB)
+ran 1000000 random queries in 0.146231s (hoplinks=64.6917)
+query latency: 0.146 us
+	Command being timed: "./build/query ./saved_indexes/W_Beijing.hl"
+	User time (seconds): 0.19
+	System time (seconds): 0.15
+	Percent of CPU this job got: 80%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.43
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 119780
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 24873
+	Voluntary context switches: 19
+	Involuntary context switches: 0
+	Swaps: 0
+	File system inputs: 177552
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+========================================
+Dataset: W_Shanghai
+========================================
+Evaluating HCL index for W_Shanghai (1M random queries)...
+read index in 0.208861s (69 MB)
+ran 1000000 random queries in 0.125987s (hoplinks=43.2106)
+query latency: 0.126 us
+	Command being timed: "./build/query ./saved_indexes/W_Shanghai.hl"
+	User time (seconds): 0.17
+	System time (seconds): 0.12
+	Percent of CPU this job got: 74%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.40
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 101380
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 20911
+	Voluntary context switches: 19
+	Involuntary context switches: 1
+	Swaps: 0
+	File system inputs: 140960
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+========================================
+Dataset: W_NewYork
+========================================
+Evaluating HCL index for W_NewYork (1M random queries)...
+read index in 0.43976s (212 MB)
+ran 1000000 random queries in 0.10246s (hoplinks=14.1804)
+query latency: 0.102 us
+	Command being timed: "./build/query ./saved_indexes/W_NewYork.hl"
+	User time (seconds): 0.19
+	System time (seconds): 0.33
+	Percent of CPU this job got: 82%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.63
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 250852
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 57045
+	Voluntary context switches: 19
+	Involuntary context switches: 1
+	Swaps: 0
+	File system inputs: 431112
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+========================================
+Dataset: W_Chicago
+========================================
+Evaluating HCL index for W_Chicago (1M random queries)...
+read index in 0.689785s (500 MB)
+ran 1000000 random queries in 0.256804s (hoplinks=61.4389)
+query latency: 0.257 us
+	Command being timed: "./build/query ./saved_indexes/W_Chicago.hl"
+	User time (seconds): 0.39
+	System time (seconds): 0.63
+	Percent of CPU this job got: 95%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.08
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 547192
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 131042
+	Voluntary context switches: 19
+	Involuntary context switches: 2
+	Swaps: 0
+	File system inputs: 491520
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+========================================
+Dataset: FLA
+========================================
+Evaluating HCL index for FLA (1M random queries)...
+read index in 0.801334s (520 MB)
+ran 1000000 random queries in 0.134157s (hoplinks=13.7337)
+query latency: 0.134 us
+	Command being timed: "./build/query ./saved_indexes/FLA.hl"
+	User time (seconds): 0.36
+	System time (seconds): 0.64
+	Percent of CPU this job got: 88%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.13
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 574220
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 135720
+	Voluntary context switches: 23
+	Involuntary context switches: 2
+	Swaps: 0
+	File system inputs: 491528
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+========================================
+Dataset: E
+========================================
+Evaluating HCL index for E (1M random queries)...
+read index in 4.02968s (3688 MB)
+ran 1000000 random queries in 0.297309s (hoplinks=30.5041)
+query latency: 0.297 us
+	Command being timed: "./build/query ./saved_indexes/E.hl"
+	User time (seconds): 1.37
+	System time (seconds): 4.31
+	Percent of CPU this job got: 97%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.83
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3841224
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1793873
+	Voluntary context switches: 18
+	Involuntary context switches: 12
+	Swaps: 0
+	File system inputs: 491520
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+========================================
+Dataset: W
+========================================
+Evaluating HCL index for W (1M random queries)...
+read index in 7.38396s (7010 MB)
+ran 1000000 random queries in 0.369616s (hoplinks=41.4789)
+query latency: 0.370 us
+	Command being timed: "./build/query ./saved_indexes/W.hl"
+	User time (seconds): 2.37
+	System time (seconds): 8.15
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.63
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 7269144
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 3483857
+	Voluntary context switches: 23
+	Involuntary context switches: 24
+	Swaps: 0
+	File system inputs: 491528
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+========================================
+Dataset: CTR
+========================================
+Evaluating HCL index for CTR (1M random queries)...
+read index in 28.4287s (27769 MB)
+ran 1000000 random queries in 0.525697s (hoplinks=62.644)
+query latency: 0.526 us
+	Command being timed: "./build/query ./saved_indexes/CTR.hl"
+	User time (seconds): 7.06
+	System time (seconds): 32.53
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:39.91
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 28604536
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 14403981
+	Voluntary context switches: 23
+	Involuntary context switches: 73
+	Swaps: 0
+	File system inputs: 491536
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+========================================
+Dataset: USA
+========================================
+Evaluating HCL index for USA (1M random queries)...
+read index in 65.0754s (56436 MB)
+ran 1000000 random queries in 1.4983s (hoplinks=66.029)
+query latency: 1.498 us
+	Command being timed: "./build/query ./saved_indexes/USA.hl"
+	User time (seconds): 12.76
+	System time (seconds): 103.80
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:57.31
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 58052928
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 11
+	Minor (reclaiming a frame) page faults: 35145095
+	Voluntary context switches: 57
+	Involuntary context switches: 242
+	Swaps: 0
+	File system inputs: 522592
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
