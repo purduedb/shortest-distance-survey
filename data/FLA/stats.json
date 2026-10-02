@@ -1,0 +1,12 @@
+{
+  "data_name": "FLA",
+  "nodes": 1070376,
+  "edges": 1343951,
+  "min_node_degree": 1,
+  "max_node_degree": 8,
+  "avg_node_degree": 2.51,
+  "min_edge_weight": 0,
+  "max_edge_weight": 21401,
+  "avg_edge_weight": 204.39,
+  "diameter_km": 1199.41
+}

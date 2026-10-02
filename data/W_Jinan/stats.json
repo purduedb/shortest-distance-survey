@@ -1,0 +1,12 @@
+{
+  "data_name": "W_Jinan",
+  "nodes": 8908,
+  "edges": 14070,
+  "min_node_degree": 1,
+  "max_node_degree": 10,
+  "avg_node_degree": 3.16,
+  "min_edge_weight": 0,
+  "max_edge_weight": 9316,
+  "avg_edge_weight": 312.91,
+  "diameter_km": 66.86
+}

@@ -1,0 +1,71 @@
+# Create env:
+#     $ conda env create -f environment.yml
+#
+# Regenerate the conda deps list (excluding pip packages):
+#     $ conda env export --no-builds --from-history | grep -v "^prefix: "
+# NOTE: --from-history does not capture pip packages. So, the `pip:` section
+# below is hand-curated and must be kept in sync manually.
+name: myenv
+channels:
+  - conda-forge
+dependencies:
+  ## Python ##
+  # Reference: https://www.python.org/downloads/
+  - python=3.12
+  - pip
+  - ipykernel
+  - ipython
+  - ipywidgets
+  # ML Stack
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - catboost>=1.2.8  # numpy 2.x support landed in 1.2.8; older builds break with "dtype size changed"
+  - gensim
+  - networkx
+  - python-igraph
+  - pymetis
+  - pyproj
+  - tqdm
+  - tabulate
+  - nvidia-ml-py
+  # PyPI packages
+  - pip:
+    ## PyTorch ##
+    # 2. Pinned to latest PyTorch version officially supported by PyG
+    # Reference: https://pytorch.org/get-started/previous-versions/
+    - --extra-index-url https://download.pytorch.org/whl/cu126
+    - torch==2.12.1+cu126; sys_platform == "linux"
+    - torch==2.12.1; sys_platform == "darwin"
+
+    ## PyTorch Geometric ##
+    # 1. Pinned to the latest version (2.8.0)
+    # Reference: https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html
+    # Reference: https://github.com/pyg-team/pytorch_geometric/releases
+    - torch-geometric==2.8.0
+    - --find-links https://data.pyg.org/whl/torch-2.12.1+cu126.html
+    - --find-links https://data.pyg.org/whl/torch-2.12.1+cpu.html
+    - pyg-lib==0.7.0
+
+    ## TensorFlow ##
+    # 3. Pinned to latest version 2.21.0
+    # Reference: https://www.tensorflow.org/install/pip
+    # Reference: https://github.com/tensorflow/tensorflow/releases
+    - tensorflow[and-cuda]==2.21.0; sys_platform == "linux"
+    - tensorflow==2.21.0; sys_platform == "darwin"
+
+    ## ONNX Runtime + TensorRT ##
+    # 4. tensorrt-cu12-libs pinned to 10.x, matching our CUDA 12.6 torch build
+    # Reference: https://onnxruntime.ai/docs/execution-providers/TensorRT-ExecutionProvider.html
+    - tensorrt-cu12-libs==10.16.1.11; sys_platform == "linux"
+    - onnxruntime-gpu==1.29.0; sys_platform == "linux"
+    - onnxruntime==1.29.0; sys_platform == "darwin"
+    - onnx
+    - onnxscript
+
+    # Other packages
+    - pecanpy
+    - networkit

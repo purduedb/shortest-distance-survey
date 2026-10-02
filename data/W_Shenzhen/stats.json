@@ -1,0 +1,12 @@
+{
+  "data_name": "W_Shenzhen",
+  "nodes": 11933,
+  "edges": 18904,
+  "min_node_degree": 1,
+  "max_node_degree": 12,
+  "avg_node_degree": 3.17,
+  "min_edge_weight": 0,
+  "max_edge_weight": 5811,
+  "avg_edge_weight": 239.1,
+  "diameter_km": 45.89
+}

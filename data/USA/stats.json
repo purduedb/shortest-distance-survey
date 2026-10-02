@@ -1,0 +1,12 @@
+{
+  "data_name": "USA",
+  "nodes": 23947347,
+  "edges": 28854312,
+  "min_node_degree": 1,
+  "max_node_degree": 9,
+  "avg_node_degree": 2.41,
+  "min_edge_weight": 0,
+  "max_edge_weight": 36886,
+  "avg_edge_weight": 294.91,
+  "diameter_km": 5585.99
+}

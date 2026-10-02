@@ -1,0 +1,50 @@
+# To create a conda environment using this file:
+#     $ conda env create -f environment.yml
+
+# To generate this file:
+#     $ conda env export --no-builds --from-history | grep -v "^prefix: " > environment.yml
+# Explanation:
+#     --no-builds: Ensures only package names and versions are included, without build information.
+#     --from-history: Only include packages that are explicitly installed by the user.
+#     grep -v "^prefix: ": Exclude the prefix line from the output, which can differ between systems.
+#     NOTE: you will need to manually edit this file to add comments, add/modify channels and reorder the packages/channels.
+name: openne
+channels:
+  - defaults
+  - pytorch
+  - nvidia
+  - anaconda
+  - conda-forge
+dependencies:
+  # Python packages
+  - python=3.10
+  - pip
+  - ipykernel
+  - ipython
+  # PyTorch packages
+  # Reference: https://pytorch.org/get-started/locally/
+  - pytorch==2.4.0
+  - torchaudio==2.4.0
+  - torchvision==0.19.0
+  - pytorch-cuda=12.1
+  # Other packages
+  - networkx
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - tqdm
+  - scipy
+  - tabulate
+  - scikit-learn
+  - ipywidgets
+  ## PyPI packages
+  - pip:
+    # PyTorch Geometric
+    # Reference: https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html
+    - torch-geometric==2.6.1
+    # TensorFlow with CUDA support
+    # Reference: https://www.tensorflow.org/install/pip
+    - tensorflow[and-cuda]==2.19.0
+    # Other packages
+    - gensim

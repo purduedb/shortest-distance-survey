@@ -1,0 +1,12 @@
+{
+  "data_name": "W_Chicago",
+  "nodes": 386533,
+  "edges": 549635,
+  "min_node_degree": 1,
+  "max_node_degree": 9,
+  "avg_node_degree": 2.84,
+  "min_edge_weight": 1,
+  "max_edge_weight": 12256,
+  "avg_edge_weight": 123.64,
+  "diameter_km": 190.99
+}

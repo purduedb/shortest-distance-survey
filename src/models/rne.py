@@ -1,0 +1,355 @@
+"""
+References:
+    [1] Paper: RNE: computing shortest paths using road network embedding (VLDB Journal 2022)
+    [2] Original implementation: https://github.com/LennyHuang15/RNE-notebook/blob/master/RNE.ipynb
+"""
+
+import time
+import numpy as np
+import copy
+
+import torch
+import torch.nn as nn
+
+from models.basemodel import BaseModel
+
+
+class RNE(BaseModel):
+    def __init__(self, num_nodes, embed_size, max_distance=1.0, parts=None, sparse=False):
+        """
+        Initializes the RNE model.
+        """
+        super().__init__()
+        self.embed_size = embed_size
+        self.max_distance = max_distance
+        self.parts = torch.from_numpy(parts) if parts is not None else None
+        print(f"Initializing RNE...")
+        print(f"  - Number of nodes: {num_nodes}")
+        print(f"  - Embedding size: {embed_size}")
+        print(f"  - Parts shape: {parts.shape if parts is not None else None}")
+        print(f"  - Max distance: {max_distance}")
+        print(f"  - Sparse: {sparse}")
+
+        ## Define layers
+        # Embedding layer
+        self.embedding = nn.Embedding(num_nodes, embed_size, sparse=sparse)
+        nn.init.uniform_(self.embedding.weight, -3/2, 3/2)
+
+    def forward(self, x1, x2):
+        """
+        Computes the Lp norm between node embeddings.
+
+        Args:
+            x1 (torch.Tensor): Node indices for the first set of nodes.
+            x2 (torch.Tensor): Node indices for the second set of nodes.
+
+        Returns:
+            torch.Tensor: Lp norm between the embeddings.
+        """
+        # Embedding layer
+        x1 = self.embedding(x1)
+        x2 = self.embedding(x2)
+
+        x = torch.abs(x1 - x2)                  # Shape: (B, embed_size)
+        x = torch.mean(x, dim=1, keepdim=True)  # Shape: (B, 1)
+        x = x * self.max_distance
+
+        return x
+
+    def _train_step(self, x1, x2, y, criterion, optimizer):
+        optimizer.zero_grad()           # Clear gradients
+        y_pred = self.forward(x1, x2)   # Forward pass
+
+        # Normalize predictions and targets
+        y_pred = y_pred / self.max_distance
+        y = y / self.max_distance
+
+        loss = criterion(y_pred, y)     # Compute Loss
+        loss.backward()                 # Backward pass (gradient computation)
+        optimizer.step()                # Update weights
+        return loss
+
+    def fit(self,
+            dataloader,
+            criterion,
+            optimizer,
+            val_dataloader=None,
+            epochs=1,
+            display_step=10,
+            device="cpu",
+            time_limit=None,
+            fast_dev_run=False,
+            **kwargs
+        ):
+        """
+        Trains the model using the provided dataloader.
+        Optionally evaluates on validation data.
+        """
+        # Skip training if epochs is 0 or negative
+        if epochs <= 0:
+            return {
+                "loss_epoch_history": [],
+                "loss_iter_history": [],
+                "val_mre_epoch_history": [],
+                "time_history": [],
+            }
+
+        # Set the model to training mode
+        self.train()
+
+        # Move model and criterion to device
+        self.to(device)
+        criterion.to(device)
+
+        # Initialize history lists for tracking training progress
+        loss_epoch_history = []                 # Average train loss per epoch
+        loss_iter_history = []                  # Train loss per batch
+        val_mre_epoch_history = []              # Validation MRE per epoch
+        time_history = []                       # Time elapsed per epoch
+        best_val_mre = float('inf')             # Best validation MRE observed
+        best_state_dict = None                  # State dict for best model weights
+
+        # Calculate how often to display progress
+        # NOTE: max handles cases where dataloader is small
+        display_step = max(1, len(dataloader) // display_step)
+
+        # Start time for training
+        start_time = time.perf_counter()  # Start time for training
+        time_limit_reached = False        # Track if time limit has been reached
+
+        ## Hierarchical training
+        if self.parts is not None:
+            print(f"Starting hierarchical training with {self.parts.shape[1]} levels")
+
+            num_levels = self.parts.shape[1]
+            print(f"Number of hierarchical levels: {num_levels}")
+            if self.parts.shape[0] <= 1e6:
+                # For smaller graphs, use more epochs to allow the model to learn better representations at each level
+                # Train 10 epochs on the last level, 5 epochs on all other levels, TODO: make this as a parameter
+                h_epochs = [5]*(num_levels-1) + [10]
+            else:
+                # For larger graphs, use fewer epochs to save time
+                h_epochs = [2]*(num_levels-1) + [4]
+            print(f"Hierarchical epochs per level: {h_epochs}")
+            self.parts = self.parts.to(device)
+
+            total_h_epochs = sum(h_epochs)      # Total epochs across all hierarchical levels
+            h_epochs_done = 0                   # Epochs completed across all levels (for time estimation)
+
+            for level in range(num_levels):
+                print(f"Training on hierarchical level {level + 1}/{num_levels} with {h_epochs[level]} epochs")
+                part_indices = self.parts[:, level]
+
+                # Fresh optimizer each level (same type as provided)
+                lr = optimizer.param_groups[0]['lr']
+                heir_optimizer = type(optimizer)(self.embedding.parameters(), lr=lr)
+
+                # Train current level
+                for epoch in range(h_epochs[level]):  # Loop over epochs
+                    running_loss = 0.0              # Initialize running loss
+
+                    for idx, batch in enumerate(dataloader):  # Loop through the dataloader
+                        i, j, d_ij = batch          # Unpack batch
+                        d_ij = d_ij.unsqueeze(-1)   # Ensure target shape is (batch_size, 1)
+
+                        # Map to part indices
+                        i = part_indices[i]
+                        j = part_indices[j]
+
+                        # Move data to device
+                        i = i.to(device)
+                        j = j.to(device)
+                        d_ij = d_ij.to(device)
+
+                        # Perform a training step and update running loss
+                        loss = self._train_step(i, j, d_ij, criterion, heir_optimizer)
+                        running_loss += loss.item()
+                        loss_iter_history.append(loss.item())
+
+                        # Display progress at intervals
+                        if (idx + 1) % display_step == 0:  # Print every display_step
+                            if loss.item() > 1.0:
+                                loss_str = f"{loss.item():.2f}"
+                            else:
+                                loss_str = f"{loss.item():.8f}"
+                            print(
+                                f"[Level {level + 1}/{num_levels}] Epoch: {epoch + 1:>2}/{h_epochs[level]}, "
+                                f"Batch: {idx + 1:>4} ({len(d_ij):>4} samples), "
+                                f"Loss: {loss_str:>{12}}"
+                            )
+
+                    h_epochs_done += 1
+
+                    # If validation data is provided, evaluate model
+                    val_str = ""
+                    if val_dataloader is not None:
+                        # Run evaluation on validation set
+                        # Note: nodes must be mapped through part_indices (same as training),
+                        # so self.evaluate() cannot be used directly here
+                        self.eval()
+                        val_predictions, val_targets = [], []
+                        with torch.no_grad():
+                            for i_val, j_val, d_ij_val in val_dataloader:
+                                i_val = part_indices[i_val].to(device)
+                                j_val = part_indices[j_val].to(device)
+                                outputs = self.forward(i_val, j_val).cpu().numpy()[:, 0]
+                                val_predictions.append(outputs)
+                                val_targets.append(d_ij_val.cpu().numpy())
+                        val_predictions = np.hstack(val_predictions)
+                        val_targets = np.hstack(val_targets)
+
+                        # Compute MRE on validation set
+                        val_mre = np.mean(np.abs(val_predictions - val_targets) / np.maximum(val_targets, 1e-6))
+                        val_mre_epoch_history.append(val_mre)
+                        val_str = f", Val MRE: {val_mre:.2%}"
+
+                        # Check for best model
+                        if val_mre < best_val_mre:
+                            best_val_mre = val_mre
+                            # Deepcopy creates a separate memory allocation for these weights
+                            best_state_dict = copy.deepcopy(self.state_dict())
+                            # Pre-expand embeddings to all node IDs
+                            best_state_dict['embedding.weight'].copy_(self.embedding.weight.data[part_indices])
+
+                        # Switch back to training mode after validation
+                        self.train()
+
+                    # Compute average loss and time
+                    avg_loss = running_loss / len(dataloader)
+                    time_elapsed = (time.perf_counter() - start_time) / 60
+                    time_remaining = (time_elapsed / h_epochs_done) * (total_h_epochs - h_epochs_done)
+
+                    loss_epoch_history.append(avg_loss)
+                    time_history.append(time_elapsed)
+                    if avg_loss > 1.0:
+                        avg_loss_str = f"{avg_loss:.2f}"
+                    else:
+                        avg_loss_str = f"{avg_loss:.8f}"
+                    print(
+                        f"[Level {level + 1}/{num_levels}] Epoch: {epoch + 1:>2}/{h_epochs[level]}, "
+                        f"Time elapsed/remaining/total: {time_elapsed:.2f}/{time_remaining:.2f}/{(time_elapsed + time_remaining):.2f} min, "
+                        f"Train Loss: {avg_loss_str:>12}{val_str}"
+                    )
+
+                    # Check for time limit
+                    if time_limit is not None:
+                        if time_elapsed >= time_limit:
+                            print(f"Time limit of {time_limit} minutes reached. Stopping training.")
+                            time_limit_reached = True
+                            break
+
+                # Transfer embeddings to next level (or last-level on last/early-stop)
+                if time_limit_reached or level == num_levels - 1:
+                    next_indices = torch.arange(self.embedding.num_embeddings, device=device)
+                else:
+                    next_indices = self.parts[:, level + 1]
+                with torch.no_grad():
+                    self.embedding.weight.data[next_indices] = self.embedding.weight.data[part_indices]
+
+                if time_limit_reached:
+                    break
+
+            print("Completed hierarchical training.")
+
+        ## Standard training
+        if time_limit_reached:
+            print(f"Time limit of {time_limit} minutes reached. Skipping standard training.")
+            epochs = 0
+
+        if self.parts is not None:
+            # Last level = identity partitioning (one node per part) = same node space as standard training
+            # So, its optimizer carries over safely
+            optimizer = heir_optimizer
+
+        print(f"Starting standard training for {epochs} epochs")
+        for epoch in range(epochs):  # Loop over epochs
+            # Initialize running loss
+            running_loss = 0.0
+
+            for idx, batch in enumerate(dataloader):  # Loop over batches
+                i, j, d_ij = batch          # Unpack batch
+                d_ij = d_ij.unsqueeze(-1)   # Ensure target shape is (batch_size, 1)
+
+                # Move data to device
+                i = i.to(device)
+                j = j.to(device)
+                d_ij = d_ij.to(device)
+
+                # Perform a training step and update running loss
+                loss = self._train_step(i, j, d_ij, criterion, optimizer)
+                running_loss += loss.item()
+                loss_iter_history.append(loss.item())
+
+                # Display progress at intervals
+                if (idx + 1) % display_step == 0:  # Print every display_step
+                    if loss.item() > 1.0:
+                        loss_str = f"{loss.item():.2f}"
+                    else:
+                        loss_str = f"{loss.item():.8f}"
+                    print(
+                        f"Epoch: {epoch + 1:>2}/{epochs}, "
+                        f"Batch: {idx + 1:>4} ({len(d_ij):>4} samples), "
+                        f"Train Loss: {loss_str:>12}"
+                    )
+
+                # For quick debugging
+                if fast_dev_run:
+                    break
+
+            # If validation data is provided, evaluate model
+            val_str = ""
+            if val_dataloader is not None:
+                # Run evaluation on validation set
+                val_predictions, val_targets, _ = self.evaluate(
+                    val_dataloader, device=device, profile_time=False
+                )
+                # Compute MRE on validation set
+                val_mre = np.mean(np.abs(val_predictions - val_targets) / np.maximum(val_targets, 1e-6))
+                val_str = f", Val MRE: {val_mre:.2%}"
+                val_mre_epoch_history.append(val_mre)
+
+                # Check for best model
+                if val_mre < best_val_mre:
+                    best_val_mre = val_mre
+                    # Deepcopy creates a separate memory allocation for these weights
+                    best_state_dict = copy.deepcopy(self.state_dict())
+
+                # Switch back to training mode after validation
+                self.train()
+
+            # Compute average loss
+            avg_loss = running_loss / len(dataloader)
+            loss_epoch_history.append(avg_loss)
+
+            # Compute time elapsed
+            time_elapsed = (time.perf_counter() - start_time) / 60  # (in minutes)
+            time_remaining = (time_elapsed / (epoch + 1)) * (epochs - epoch - 1)
+            time_history.append(time_elapsed)
+
+            if avg_loss > 1.0:
+                avg_loss_str = f"{avg_loss:.2f}"
+            else:
+                avg_loss_str = f"{avg_loss:.8f}"
+            print(
+                f"Epoch: {epoch + 1:>2}/{epochs}, "
+                f"Time elapsed/remaining/total: {time_elapsed:.2f}/{time_remaining:.2f}/{(time_elapsed + time_remaining):.2f} min, "
+                f"Train Loss: {avg_loss_str:>12}{val_str}"
+            )
+
+            # Check for time limit
+            if time_limit is not None:
+                if time_elapsed >= time_limit:
+                    print(f"Time limit of {time_limit} minutes reached. Stopping training.")
+                    break
+
+        # Load best model weights before returning (if available)
+        if best_state_dict is not None:
+            self.load_state_dict(best_state_dict)
+
+        # Return training and validation history for analysis
+        return {
+            "loss_epoch_history": loss_epoch_history,
+            "loss_iter_history": loss_iter_history,
+            "val_mre_epoch_history": val_mre_epoch_history,
+            "time_history": time_history,
+        }
